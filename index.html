@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science National Honor Society</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background: #0d7377;
+            min-height: 100%;
+            font-size: 18px;
+        }
+        
+        html {
+            height: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 20px 0;
+            box-shadow: 0 4px 25px rgba(13, 115, 119, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid #14a085;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #14a085, #0d7377);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            font-weight: bold;
+            animation: rotate 3s ease-in-out infinite alternate;
+            box-shadow: 0 0 20px rgba(20, 160, 133, 0.5);
+        }
+
+        .logo-text h1 {
+            margin: 0;
+            font-size: 32px;
+            background: linear-gradient(135deg, #14a085, #0d7377);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            margin: 0;
+            color: #14a085;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        nav {
+            animation: slideInRight 1s ease-out;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #14a085;
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 30px;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: #0d7377;
+            transform: translateY(-3px);
+            border-color: #14a085;
+        }
+
+        main {
+            padding: 60px 0;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 80px;
+            color: white;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero h2 {
+            font-size: 58px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        .hero p {
+            font-size: 26px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #14a085, #0d7377);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 35px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(20, 160, 133, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(20, 160, 133, 0.5);
+            background: linear-gradient(135deg, #0d7377, #14a085);
+            border-color: #14a085;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            transition: all 0.5s ease;
+            border: 2px solid #14a085;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(20, 160, 133, 0.1), rgba(13, 115, 119, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 25px 50px rgba(20, 160, 133, 0.3);
+            border-color: #0d7377;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #14a085, #0d7377);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px rgba(20, 160, 133, 0.4);
+        }
+
+        .card:hover .card-icon {
+            transform: rotateY(360deg) scale(1.1);
+            background: linear-gradient(135deg, #0d7377, #14a085);
+        }
+
+        .card h3 {
+            color: #14a085;
+            margin-bottom: 20px;
+            font-size: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #cccccc;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 19px;
+        }
+
+        .card ul {
+            color: #cccccc;
+            padding-left: 25px;
+        }
+
+        .card li {
+            margin-bottom: 12px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .card:hover li {
+            color: white;
+        }
+
+        .requirements-section {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 60px;
+            border-radius: 30px;
+            margin-bottom: 80px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 3px solid #14a085;
+        }
+
+        .requirements-section h3 {
+            color: #14a085;
+            font-size: 42px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .req-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-bottom: 40px;
+        }
+
+        .req-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, rgba(20, 160, 133, 0.1), rgba(13, 115, 119, 0.1));
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .req-item:hover {
+            transform: translateY(-8px);
+            border-color: #14a085;
+            background: linear-gradient(135deg, rgba(20, 160, 133, 0.2), rgba(13, 115, 119, 0.2));
+        }
+
+        .req-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #14a085, #0d7377);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 15px rgba(20, 160, 133, 0.4);
+        }
+
+        .req-item:hover .req-number {
+            transform: rotateY(360deg) scale(1.1);
+            background: linear-gradient(135deg, #0d7377, #14a085);
+        }
+
+        .req-item h4 {
+            color: #14a085;
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .req-item p {
+            color: #cccccc;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .service-requirements {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 50px;
+            border-radius: 25px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 2px solid #0d7377;
+        }
+
+        .service-requirements h3 {
+            color: #14a085;
+            font-size: 38px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, rgba(13, 115, 119, 0.2), rgba(20, 160, 133, 0.1));
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #14a085;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateX(10px);
+            border-left-color: #0d7377;
+            background: linear-gradient(135deg, rgba(13, 115, 119, 0.3), rgba(20, 160, 133, 0.2));
+        }
+
+        .service-item h4 {
+            color: #14a085;
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .service-item ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .service-item li {
+            margin-bottom: 8px;
+            color: #cccccc;
+            font-size: 18px;
+        }
+
+        .application-info {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            border: 3px solid #14a085;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .application-info h3 {
+            color: #14a085;
+            font-size: 34px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .application-info ul {
+            color: #cccccc;
+            font-size: 19px;
+        }
+
+        .application-info li {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #0d7377, #14a085);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(13, 115, 119, 0.4);
+        }
+
+        .members-section {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 50px;
+            border-radius: 25px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 2px solid #14a085;
+        }
+
+        .members-section h3 {
+            color: #14a085;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .members-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .member-category h4 {
+            color: #14a085;
+            font-size: 24px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .activities-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .photo-placeholder {
+            background: linear-gradient(135deg, rgba(20, 160, 133, 0.1), rgba(13, 115, 119, 0.1));
+            border: 2px dashed #14a085;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-placeholder.large-photo {
+            min-height: 250px;
+        }
+
+        .photo-placeholder:hover {
+            border-color: #0d7377;
+            background: linear-gradient(135deg, rgba(20, 160, 133, 0.2), rgba(13, 115, 119, 0.2));
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(20, 160, 133, 0.3);
+        }
+
+        .photo-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+
+        .photo-placeholder p {
+            color: #cccccc;
+            font-size: 16px;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .photo-placeholder:hover p {
+            color: #14a085;
+        }
+
+        .faq-section {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 50px;
+            border-radius: 25px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 2px solid #14a085;
+        }
+
+        .faq-section h3 {
+            color: #14a085;
+            font-size: 38px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, rgba(20, 160, 133, 0.1), rgba(13, 115, 119, 0.1));
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .faq-item:hover {
+            border-color: #14a085;
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, rgba(20, 160, 133, 0.2), rgba(13, 115, 119, 0.2));
+        }
+
+        .faq-item h4 {
+            color: #14a085;
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: #cccccc;
+            margin: 0;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            backdrop-filter: blur(15px);
+            border-top: 2px solid #14a085;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 20px;
+            color: #14a085;
+            font-size: 20px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #14a085;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(5deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h2 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .requirements-section, .service-requirements, .faq-section, .members-section {
+                padding: 30px 20px;
+            }
+
+            .req-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-placeholder {
+                min-height: 150px;
+                padding: 20px 15px;
+            }
+
+            .photo-placeholder.large-photo {
+                min-height: 200px;
+            }
+
+            .photo-icon {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🧬</div>
+                    <div class="logo-text">
+                        <h1>Science National Honor Society</h1>
+                        <p>Excellence • Character • Service</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#requirements">Requirements</a></li>
+                        <li><a href="#service">Service</a></li>
+                        <li><a href="#application">Apply</a></li>
+                        <li><a href="#members">Members</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h2>Science National Honor Society</h2>
+                <p>Join an elite community of students dedicated to scientific excellence, character development, and meaningful service to humanity.</p>
+                <a href="#requirements" class="cta-button">Explore Membership</a>
+            </section>
+
+            <section id="about" class="content-grid">
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Our Mission</h3>
+                    <p>The Science National Honor Society encourages participation in scientific and intellectual thought while advancing students' knowledge of classical and modern science.</p>
+                    <ul>
+                        <li>Encourage scientific and intellectual thought</li>
+                        <li>Advance knowledge of classical and modern science</li>
+                        <li>Communicate with the scientific community</li>
+                        <li>Aid civic community comprehension of science</li>
+                        <li>Promote community service dedication</li>
+                        <li>Pursue scientific knowledge benefiting mankind</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3>Membership Benefits</h3>
+                    <p>SNHS membership provides prestigious recognition and demonstrates the qualities that colleges and universities seek in applicants.</p>
+                    <ul>
+                        <li>Demonstrates excellent character to colleges</li>
+                        <li>Shows high academic achievement</li>
+                        <li>Proves teacher trust and recommendation</li>
+                        <li>Official SNHS medal and graduation cord</li>
+                        <li>Free SNHS t-shirt</li>
+                        <li>Enhanced college application profile</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🌟</div>
+                    <h3>Character Excellence</h3>
+                    <p>We seek students who exemplify the highest standards of character, integrity, and commitment to scientific principles and community service.</p>
+                    <ul>
+                        <li>Outstanding academic performance</li>
+                        <li>Strong moral character and integrity</li>
+                        <li>Leadership potential and initiative</li>
+                        <li>Commitment to community service</li>
+                        <li>Dedication to scientific advancement</li>
+                        <li>Teacher approval and trust</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="requirements" class="requirements-section">
+                <h3>Membership Requirements</h3>
+                <div class="req-grid">
+                    <div class="req-item">
+                        <div class="req-number">1</div>
+                        <h4>Academic Excellence</h4>
+                        <p>Maintain at least a 3.75 weighted GPA overall with consistent high performance across all subjects</p>
+                    </div>
+                    <div class="req-item">
+                        <div class="req-number">2</div>
+                        <h4>Science Grades</h4>
+                        <p>Achieve all A's or B's in every science class (rare exceptions may be considered)</p>
+                    </div>
+                    <div class="req-item">
+                        <div class="req-number">3</div>
+                        <h4>Dual Credit Science</h4>
+                        <p>Enroll in at least one Dual Credit Science class during sophomore, junior, or senior year and remain enrolled for the full year</p>
+                    </div>
+                    <div class="req-item">
+                        <div class="req-number">4</div>
+                        <h4>Teacher Approval</h4>
+                        <p>Receive approval from the majority of science teachers on campus during application review</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>Most Important Requirement</h4>
+                    <p>Students must exemplify the mission statement of the Science National Honor Society, demonstrating dedication to scientific knowledge that benefits all mankind.</p>
+                </div>
+            </section>
+
+            <section id="service" class="service-requirements">
+                <h3>Service Requirements for Membership</h3>
+                <p style="text-align: center; font-size: 18px; color: #cccccc; margin-bottom: 40px;">To remain a member, you must fulfill ALL FIVE service requirements:</p>
+                
+                <div class="service-item">
+                    <h4>1. Blood Drive Volunteer Service</h4>
+                    <p>Volunteer at all three blood drives during the school year (3 hours each):</p>
+                    <ul>
+                        <li>Schedule blood donation appointments for applicants</li>
+                        <li>Escort students from their classrooms to donation area</li>
+                        <li>Ensure all donors arrive in a timely manner</li>
+                        <li>Assist with coordination and logistics</li>
+                    </ul>
+                </div>
+
+                <div class="service-item">
+                    <h4>2. School Science Fair Judge (December)</h4>
+                    <p>Volunteer as a judge at the school's science fair:</p>
+                    <ul>
+                        <li>Event held on a Friday near the end of December</li>
+                        <li>Judge freshmen science fair projects and posters</li>
+                        <li>Attendance required even if field trip is scheduled</li>
+                        <li>Demonstrate scientific evaluation skills</li>
+                    </ul>
+                </div>
+
+                <div class="service-item">
+                    <h4>3. District Science Fair Judge (January)</h4>
+                    <p>Volunteer as a judge at the district science fair:</p>
+                    <ul>
+                        <li>Provide your own transportation to venue</li>
+                        <li>Location: Taylor/Hasting/Elsik High School or designated site</li>
+                        <li>After school event lasting until approximately 6:00 PM</li>
+                        <li>Evaluate district-level science projects</li>
+                    </ul>
+                </div>
+
+                <div class="service-item">
+                    <h4>4. Meeting Attendance</h4>
+                    <p>Attend all SNHS meetings with proper communication:</p>
+                    <ul>
+                        <li>Attendance at all scheduled meetings is mandatory</li>
+                        <li>Absences must be prearranged with an officer or sponsor</li>
+                        <li>Only legitimate conflicts will be considered</li>
+                        <li>Active participation in society activities</li>
+                    </ul>
+                </div>
+
+                <div class="service-item">
+                    <h4>5. Exemplify the Mission Statement</h4>
+                    <p>The most important requirement for continued membership:</p>
+                    <ul>
+                        <li>Demonstrate commitment to scientific advancement</li>
+                        <li>Show dedication to community service</li>
+                        <li>Maintain high standards of character and integrity</li>
+                        <li>Pursue scientific knowledge that benefits mankind</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="application" class="application-info">
+                <h3>Application Process</h3>
+                <p style="text-align: center; margin-bottom: 30px; font-size: 18px; color: #cccccc;">Submit the following materials to Dr. Chen or Mr. Nguyen:</p>
+                
+                <ul>
+                    <li><strong>Unofficial Transcript:</strong> Include all science classes and grades highlighted</li>
+                    <li><strong>Grade Requirements:</strong> Must include freshmen, sophomore, and junior grades</li>
+                    <li><strong>GPA Highlighting:</strong> Have your overall GPA clearly highlighted</li>
+                    <li><strong>Important:</strong> Failure to highlight required information will result in automatic disqualification</li>
+                    <li><strong>Character Essay:</strong> Demonstrate your character, academic achievements, and commitment</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>Review Process & Membership Fee</h4>
+                    <p>Dr. Chen and Mr. Nguyen will carefully review all applicants based on character, grades, and essays. Accepted students will be notified through Remind and must pay a <strong>$20 non-refundable membership fee</strong> that includes your medal, shirt, and graduation cord.</p>
+                </div>
+            </section>
+
+            <section id="members" class="members-section">
+                <h3>Our SNHS Community</h3>
+                
+                <div class="members-grid">
+                    <div class="member-category">
+                        <h4>Current Members</h4>
+                        <div class="photo-grid">
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📸</div>
+                                <p>Add Member Photo</p>
+                            </div>
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📸</div>
+                                <p>Add Member Photo</p>
+                            </div>
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📸</div>
+                                <p>Add Member Photo</p>
+                            </div>
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📸</div>
+                                <p>Add Member Photo</p>
+                            </div>
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📸</div>
+                                <p>Add Member Photo</p>
+                            </div>
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📸</div>
+                                <p>Add Member Photo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="member-category">
+                        <h4>Alumni & Past Members</h4>
+                        <div class="photo-grid">
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📸</div>
+                                <p>Add Alumni Photo</p>
+                            </div>
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📸</div>
+                                <p>Add Alumni Photo</p>
+                            </div>
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📸</div>
+                                <p>Add Alumni Photo</p>
+                            </div>
+                            <div class="photo-placeholder">
+                                <div class="photo-icon">📸</div>
+                                <p>Add Alumni Photo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="member-category">
+                        <h4>Group Activities & Events</h4>
+                        <div class="photo-grid activities-grid">
+                            <div class="photo-placeholder large-photo">
+                                <div class="photo-icon">📸</div>
+                                <p>Blood Drive Event</p>
+                            </div>
+                            <div class="photo-placeholder large-photo">
+                                <div class="photo-icon">📸</div>
+                                <p>Science Fair Judging</p>
+                            </div>
+                            <div class="photo-placeholder large-photo">
+                                <div class="photo-icon">📸</div>
+                                <p>SNHS Meeting</p>
+                            </div>
+                            <div class="photo-placeholder large-photo">
+                                <div class="photo-icon">📸</div>
+                                <p>Community Service</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq" class="faq-section">
+                <h3>Frequently Asked Questions</h3>
+                
+                <div class="faq-item">
+                    <h4>Do I have to donate blood?</h4>
+                    <p>No, you do not have to donate blood to join. You just need to volunteer for the blood drive and science fair activities. Your role is to help coordinate and assist, not to donate blood yourself.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What is the benefit of joining Science National Honor Society?</h4>
+                    <p>It looks excellent on college transcripts because it tells universities and colleges that you have excellent character, grades, and shows that teachers trust you. That is exactly what universities and colleges look for in an applicant. If you are in Science National Honor Society, you basically tell schools you have what they are searching for. You also get a free t-shirt, medal, and graduation cord.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is [insert class] considered a dual credit science class?</h4>
+                    <p><strong>Here is the list of HCC classes that we accept:</strong> If it is not listed below, we will not count it! Classes from Social and Behavioral Sciences will not count.</p>
+                    <p><strong>Chemistry:</strong> CHEM 1305, 1405, 1411, 1412</p>
+                    <p><strong>Geography:</strong> GEOG 1301</p>
+                    <p><strong>Geology:</strong> GEOL 1305, 1345, 1347, 1403, 1404</p>
+                    <p><strong>Physics:</strong> PHYS 1305, 1401, 1402, 2325, 2125(Lab), 2326, 2126(Lab)</p>
+                    <p><strong>Life & Physical Sciences:</strong> ANTH 2301, ASTR 1303, 1304, 1403, 1404, BIOL 1308, 1309, 1322, 1406, 1407</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How do I know if I got accepted or not?</h4>
+                    <p>We find you and let you know, most likely through Remind. If you are not contacted, that means you were not accepted.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What criteria do you look for?</h4>
+                    <p>Besides the grades, we (all four science teachers) look at your character as a person:</p>
+                    <p>• Have you been excessively tardy? (This includes being late to study hall!)<br>
+                    • Are you respectful to your peers and teachers?<br>
+                    • Are you mature enough to handle failure?<br>
+                    • Did you receive an office referral?<br>
+                    • Do you work in the classroom?<br>
+                    • Are you paying attention in class?<br>
+                    • Are you the kind of person who leads by example instead of following people?</p>
+                    <p>Since SNHS runs the blood drives entirely on their own (and we have yet to fail to meet quota), we only choose members that we have 100% trust in. If an issue comes up, you will resolve it. If you give any reason for us not to trust you with this responsibility, then we will not select you.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Are the decisions final?</h4>
+                    <p>Yes, they are. We go through the applications twice to confirm our decisions.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I be removed once I am accepted?</h4>
+                    <p>Yes, you can. If you have a disciplinary issue (suspension) or miss a meeting for no reason, then we will remove you.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <p>📧 Dr. Chen: chen@school.edu</p>
+                    <p>📧 Mr. Nguyen: nguyen@school.edu</p>
+                    <p>📞 Science Department: (555) 123-4567</p>
+                    <p>📍 Science Department Office</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Application Details</h4>
+                    <p>Notification: Via Remind App</p>
+                    <p>Membership Fee: $20 (Non-refundable)</p>
+                    <p>Includes: Medal, Shirt, Graduation Cord</p>
+                    <p>Payment: After acceptance notification</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#requirements">Membership Requirements</a>
+                    <a href="#service">Service Obligations</a>
+                    <a href="#application">Application Process</a>
+                    <a href="#faq">Frequently Asked Questions</a>
+                </div>
+            </div>
+            <p>&copy; 2024 Science National Honor Society. Advancing scientific knowledge for the benefit of mankind.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+                header.style.boxShadow = '0 6px 35px rgba(20, 160, 133, 0.4)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+                header.style.boxShadow = '0 4px 25px rgba(13, 115, 119, 0.3)';
+            }
+        });
+
+        // Advanced animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) rotateX(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations for cards and sections
+        document.querySelectorAll('.card, .req-item, .service-item, .application-info, .faq-item').forEach((element, index) => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(50px) rotateX(10deg)';
+            element.style.transition = `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s`;
+            observer.observe(element);
+        });
+
+        // Interactive FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-3px)';
+                }, 200);
+            });
+        });
+
+        // Interactive service items
+        document.querySelectorAll('.service-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'translateX(15px) scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'translateX(10px)';
+                }, 200);
+            });
+        });
+
+        // Add floating animation to cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = 'pulse 2s ease-in-out infinite alternate';
+                }, 10);
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.animation = 'none';
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98fff840f70f7e14',t:'MTc2MDcwNTkzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
