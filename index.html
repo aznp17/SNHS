@@ -10,240 +10,117 @@
             theme: {
                 extend: {
                     colors: {
-                        'teal': {
+                        teal: {
                             50: '#f0fdfa',
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                            700: '#0f766e',
-                            800: '#115e59',
-                            900: '#134e4a'
+                            100: '#ccfbf1',
+                            500: '#008B8B',
+                            600: '#007B7B',
+                            700: '#006B6B',
+                            800: '#005B5B',
+                            900: '#004B4B'
                         }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             box-sizing: border-box;
-            font-size: 16px;
         }
-        
-        /* Custom animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero-gradient {
+            background: linear-gradient(135deg, #007B7B 0%, #008B8B 50%, #006B6B 100%);
         }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .section-padding {
+            padding: 5rem 0;
         }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 53%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40%, 43% {
-                transform: translateY(-10px);
-            }
-            70% {
-                transform: translateY(-5px);
-            }
-        }
-        
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 5px rgba(20, 184, 166, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 20px rgba(20, 184, 166, 0.8);
-            }
-        }
-        
-        .animate-fadeInUp {
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .animate-slideInLeft {
-            animation: slideInLeft 0.8s ease-out;
-        }
-        
-        .animate-slideInRight {
-            animation: slideInRight 0.8s ease-out;
-        }
-        
-        .animate-pulse-custom {
-            animation: pulse 2s infinite;
-        }
-        
-        .animate-bounce-custom {
-            animation: bounce 2s infinite;
-        }
-        
-        .animate-glow {
-            animation: glow 2s ease-in-out infinite;
-        }
-        
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .interactive-card {
+        .card-shadow:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
             transition: all 0.3s ease;
-            cursor: pointer;
         }
-        
-        .interactive-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .progress-bar {
-            width: 0%;
-            transition: width 2s ease-in-out;
-        }
-        
-        .typing-animation {
-            overflow: hidden;
-            border-right: 2px solid #14b8a6;
-            white-space: nowrap;
-            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #14b8a6 }
-        }
-        
-        .particle {
-            position: absolute;
-            background: #14b8a6;
-            border-radius: 50%;
-            pointer-events: none;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
-        }
-        
-        .gradient-text {
-            background: linear-gradient(45deg, #14b8a6, #0d9488);
+        .text-gradient {
+            background: linear-gradient(135deg, #007B7B, #008B8B);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        .slow-spin {
+            animation: spin 5s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 font-sans">
     <!-- Navigation -->
-    <nav class="bg-black text-white fixed w-full top-0 z-50 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center space-x-3">
-                        <div class="bg-teal-500 rounded-full w-10 h-10 flex items-center justify-center animate-spin" style="animation-duration: 3s;">
-                            <span class="text-xl">🧬</span>
+                    <div class="w-12 h-12 flex items-center justify-center mr-2">
+                        <div class="text-2xl slow-spin">⚛️</div>
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold text-gray-900">Alief Early College</div>
+                        <div class="text-xs text-gray-500">
+                            Science National Honor Society
                         </div>
-                        <h1 class="text-xl font-bold text-teal-400">AECHS SNHS</h1>
                     </div>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
-                        <a href="#requirements" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Requirements</a>
-                        <a href="#service" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Service</a>
-                        <a href="#apply" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Apply</a>
-                        <a href="#photos" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Photos</a>
-                        <a href="#faqs" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQs</a>
-                        <a href="#contact" class="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
-                    </div>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">About</a>
+                    <a href="#requirements" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">Requirements</a>
+                    <a href="#service" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">Service</a>
+                    <a href="#gallery" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">Gallery</a>
+                    <a href="#faq" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">FAQ</a>
+                    <a href="#contact" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">Contact</a>
+                    <a href="#apply" class="bg-teal-600 text-white px-6 py-2.5 rounded-lg hover:bg-teal-700 transition-colors font-medium">Apply Now</a>
                 </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-white hover:text-teal-400 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-600 p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
         </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-black">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block hover:text-teal-400 px-3 py-2 rounded-md text-base font-medium">About</a>
-                <a href="#requirements" class="block hover:text-teal-400 px-3 py-2 rounded-md text-base font-medium">Requirements</a>
-                <a href="#service" class="block hover:text-teal-400 px-3 py-2 rounded-md text-base font-medium">Service</a>
-                <a href="#apply" class="block hover:text-teal-400 px-3 py-2 rounded-md text-base font-medium">Apply</a>
-                <a href="#photos" class="block hover:text-teal-400 px-3 py-2 rounded-md text-base font-medium">Photos</a>
-                <a href="#faqs" class="block hover:text-teal-400 px-3 py-2 rounded-md text-base font-medium">FAQs</a>
-                <a href="#contact" class="block hover:text-teal-400 px-3 py-2 rounded-md text-base font-medium">Contact</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-100">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#about" class="block text-gray-600 hover:text-teal-600 font-medium">About</a>
+                <a href="#requirements" class="block text-gray-600 hover:text-teal-600 font-medium">Requirements</a>
+                <a href="#service" class="block text-gray-600 hover:text-teal-600 font-medium">Service</a>
+                <a href="#gallery" class="block text-gray-600 hover:text-teal-600 font-medium">Gallery</a>
+                <a href="#faq" class="block text-gray-600 hover:text-teal-600 font-medium">FAQ</a>
+                <a href="#contact" class="block text-gray-600 hover:text-teal-600 font-medium">Contact</a>
+                <a href="#apply" class="block bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors font-medium text-center">Apply Now</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="bg-gradient-to-r from-teal-600 to-teal-800 text-white pt-16 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="particle" style="top: 10%; left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
-            <div class="particle" style="top: 20%; left: 80%; width: 6px; height: 6px; animation-delay: 1s;"></div>
-            <div class="particle" style="top: 60%; left: 20%; width: 3px; height: 3px; animation-delay: 2s;"></div>
-            <div class="particle" style="top: 80%; left: 70%; width: 5px; height: 5px; animation-delay: 3s;"></div>
-            <div class="particle" style="top: 30%; left: 50%; width: 4px; height: 4px; animation-delay: 4s;"></div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fadeInUp">Science National Honor Society</h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.3s;">Recognizing excellence in science education and fostering scientific literacy in our community</p>
-                <a href="#apply" class="bg-black hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 hover-lift animate-fadeInUp animate-glow" style="animation-delay: 0.6s;">Apply Now</a>
-                <div class="mt-8 animate-bounce-custom">
-                    <svg class="w-6 h-6 mx-auto text-white opacity-70" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                    </svg>
+    <header class="hero-gradient text-white pt-20">
+        <div class="max-w-6xl mx-auto px-6 py-24">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-5xl lg:text-7xl font-bold mb-8 leading-tight">Science National<br>Honor Society</h1>
+                <p class="text-xl lg:text-2xl mb-12 text-teal-100 leading-relaxed">Recognizing excellence in science education and fostering the next generation of scientific leaders through scholarship, service, and character.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#apply" class="bg-white text-teal-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center">
+                        Apply for Membership
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                    <a href="#about" class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-teal-700 transition-colors inline-flex items-center justify-center">Learn More</a>
                 </div>
             </div>
         </div>
@@ -251,730 +128,581 @@
 
     <main>
         <!-- About Section -->
-        <section id="about" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">About SNHS</h2>
-                    <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
-                </div>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+        <section id="about" class="section-padding bg-white">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <h3 class="text-2xl font-bold text-black mb-6">Our Mission</h3>
-                        <p class="text-gray-700 mb-6 leading-relaxed">The Science National Honor Society recognizes outstanding achievement in science and promotes scientific literacy. We encourage students to pursue careers in science and provide opportunities for service to the school and community.</p>
-                        <p class="text-gray-700 leading-relaxed">Founded on the principles of scholarship, leadership, service, and character, SNHS empowers students to make meaningful contributions to the scientific community while developing essential life skills.</p>
+                        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">About Science NHS</h2>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">The Science National Honor Society recognizes outstanding achievement in science and promotes interest in science among high school students. We foster scientific literacy and encourage careers in STEM fields.</p>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <div class="text-2xl">🏆</div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Academic Excellence</h3>
+                                    <p class="text-gray-600">Recognizing students who demonstrate outstanding performance in science coursework and maintain high academic standards.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <div class="text-2xl">❤️</div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Community Service</h3>
+                                    <p class="text-gray-600">Engaging in meaningful service projects that benefit our community and promote scientific literacy.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <div class="text-2xl">👥</div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Leadership Development</h3>
+                                    <p class="text-gray-600">Building leadership skills through peer mentoring, project management, and scientific collaboration.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-teal-50 p-8 rounded-lg">
-                        <h3 class="text-2xl font-bold text-black mb-6">Our Values</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <span class="bg-teal-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">S</span>
-                                <div>
-                                    <strong class="text-black">Scholarship:</strong>
-                                    <span class="text-gray-700"> Excellence in academic achievement</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-teal-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">L</span>
-                                <div>
-                                    <strong class="text-black">Leadership:</strong>
-                                    <span class="text-gray-700"> Inspiring others through example</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-teal-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">S</span>
-                                <div>
-                                    <strong class="text-black">Service:</strong>
-                                    <span class="text-gray-700"> Contributing to community welfare</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-teal-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">C</span>
-                                <div>
-                                    <strong class="text-black">Character:</strong>
-                                    <span class="text-gray-700"> Demonstrating integrity and ethics</span>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <div class="text-center mb-8">
+                            <div class="w-20 h-20 bg-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                <div class="text-4xl">🎯</div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Our Mission</h3>
+                        </div>
+                        <p class="text-gray-600 text-center leading-relaxed">To recognize outstanding achievement in science, promote interest in science among high school students, and encourage the pursuit of scientific careers while fostering character, leadership, and service.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Requirements Section -->
-        <section id="requirements" class="py-20 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="requirements" class="section-padding bg-gray-50">
+            <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">Membership Requirements</h2>
-                    <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Membership Requirements</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">To become a member of Science NHS, students must demonstrate excellence in four key areas</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center interactive-card hover-lift" onclick="showRequirementDetail('gpa')">
-                        <div class="bg-teal-500 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 animate-pulse-custom">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
+                    <div class="bg-white rounded-2xl p-8 card-shadow text-center">
+                        <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="text-3xl">🎓</div>
                         </div>
-                        <h3 class="text-xl font-bold text-black mb-3">GPA Requirement</h3>
-                        <p class="text-gray-700">Must have at least an overall 3.75 (weighted) GPA</p>
-                        <div class="mt-4">
-                            <div class="bg-gray-200 rounded-full h-2">
-                                <div class="bg-teal-500 h-2 rounded-full progress-bar" data-width="75"></div>
-                            </div>
-                            <p class="text-sm text-gray-500 mt-1">3.75+ Required</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Scholarship</h3>
+                        <ul class="text-gray-600 space-y-2 text-left">
+                            <li>• Minimum 3.75 weighted GPA</li>
+                            <li>• All A's or B's in science classes</li>
+                            <li>• Enrolled in Dual Credit Science</li>
+                            <li>• Science teacher approval</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 card-shadow text-center">
+                        <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="text-3xl">👑</div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Leadership</h3>
+                        <ul class="text-gray-600 space-y-2 text-left">
+                            <li>• Demonstrate leadership qualities</li>
+                            <li>• Active in school activities</li>
+                            <li>• Peer mentoring experience</li>
+                            <li>• Initiative in projects</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 card-shadow text-center">
+                        <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="text-3xl">🤝</div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Service</h3>
+                        <ul class="text-gray-600 space-y-2 text-left">
+                            <li>• 10+ hours community service</li>
+                            <li>• Commitment to helping others</li>
+                            <li>• Volunteer experience</li>
+                            <li>• Service-oriented mindset</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 card-shadow text-center">
+                        <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="text-3xl">⭐</div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Character</h3>
+                        <ul class="text-gray-600 space-y-2 text-left">
+                            <li>• Demonstrate integrity</li>
+                            <li>• Show respect for others</li>
+                            <li>• Maintain good citizenship</li>
+                            <li>• Uphold school values</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Opportunities -->
+        <section id="service" class="section-padding bg-white">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Service Opportunities</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Make a difference in your community through meaningful science-focused service projects</p>
+                </div>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="group">
+                        <div class="bg-teal-50 rounded-2xl p-8 mb-6 group-hover:bg-teal-100 transition-colors">
+                            <div class="text-5xl mb-4">🩸</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Blood Drive Volunteer</h3>
+                            <p class="text-gray-600 mb-4">Volunteer at all three blood drives during the school year</p>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li>• Schedule blood donation appointments for applicants</li>
+                                <li>• Escort students from their classrooms</li>
+                                <li>• Ensure all donors arrive in a timely manner</li>
+                                <li>• Support blood donation coordination</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center interactive-card hover-lift" onclick="showRequirementDetail('grade')">
-                        <div class="bg-teal-500 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 animate-pulse-custom" style="animation-delay: 0.5s;">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-black mb-3">Grade Level</h3>
-                        <p class="text-gray-700">Open to sophomores, juniors, and seniors in good standing</p>
-                        <div class="mt-4 flex justify-center space-x-2">
-                            <span class="bg-teal-100 text-teal-800 px-2 py-1 rounded text-sm">10th</span>
-                            <span class="bg-teal-100 text-teal-800 px-2 py-1 rounded text-sm">11th</span>
-                            <span class="bg-teal-100 text-teal-800 px-2 py-1 rounded text-sm">12th</span>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center interactive-card hover-lift" onclick="showRequirementDetail('courses')">
-                        <div class="bg-teal-500 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 animate-pulse-custom" style="animation-delay: 1s;">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M4.555 5.168A1 1 0 003 6v8a1 1 0 001.555.832L10 11.202V14a1 1 0 001.555.832L16 12.202V15a1 1 0 102 0V5a1 1 0 00-2 0v2.798l-4.445-2.63A1 1 0 0010 5.798V8.596L4.555 5.168z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-black mb-3">Science Courses</h3>
-                        <p class="text-gray-700">Must have all A's or B's in every science class and be enrolled in at least one Dual Credit Science class</p>
-                        <div class="mt-4">
-                            <div class="text-2xl font-bold text-teal-600">A-B</div>
-                            <p class="text-sm text-gray-500">Grade Requirement</p>
+                    <div class="group">
+                        <div class="bg-teal-50 rounded-2xl p-8 mb-6 group-hover:bg-teal-100 transition-colors">
+                            <div class="text-5xl mb-4">🔬</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">School Science Fair Judge</h3>
+                            <p class="text-gray-600 mb-4">Judge at the school's science fair in December</p>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li>• Friday near the end of December</li>
+                                <li>• Judge freshmen science fair projects and posters</li>
+                                <li>• Required even if field trip is planned that day</li>
+                                <li>• Evaluate student research and presentations</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center interactive-card hover-lift" onclick="showRequirementDetail('approval')">
-                        <div class="bg-teal-500 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 animate-pulse-custom" style="animation-delay: 1.5s;">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-black mb-3">Teacher Approval</h3>
-                        <p class="text-gray-700">Approval from majority of the science teachers on campus when we review your application</p>
-                        <div class="mt-4">
-                            <div class="text-2xl">👥</div>
-                            <p class="text-sm text-gray-500">Faculty Review</p>
+                    <div class="group">
+                        <div class="bg-teal-50 rounded-2xl p-8 mb-6 group-hover:bg-teal-100 transition-colors">
+                            <div class="text-5xl mb-4">🏆</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">District Science Fair Judge</h3>
+                            <p class="text-gray-600 mb-4">Judge at the district science fair in January</p>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li>• Transportation required to Taylor/Hastings/Elsik HS</li>
+                                <li>• After school event lasting until ~6:00 PM</li>
+                                <li>• Evaluate district-level science projects</li>
+                                <li>• Support student scientific achievement</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Service Section -->
-        <section id="service" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">Service Opportunities</h2>
-                    <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
-                    <h3 class="text-2xl font-bold text-black mb-6">Required Service Activities</h3>
-                    <p class="text-gray-700 mb-6">To remain a member, you must fulfill all five service requirements:</p>
-                    
-                    <div class="space-y-6">
-                        <div class="border-l-4 border-teal-500 pl-6">
-                            <h4 class="text-lg font-bold text-black mb-2">1. Blood Drive Volunteer</h4>
-                            <p class="text-gray-700 mb-2">Volunteer at all three blood drives during the school year:</p>
-                            <ul class="text-gray-600 space-y-1 ml-4">
-                                <li>• Schedule blood donation times for applicants</li>
-                                <li>• Escort students from their classrooms</li>
-                                <li>• Ensure all donors arrive in a timely manner</li>
-                            </ul>
+        <!-- Counter Section -->
+        <section class="py-16 bg-teal-600">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Active Members Counter -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-xl mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                            </svg>
                         </div>
-                        
-                        <div class="border-l-4 border-teal-500 pl-6">
-                            <h4 class="text-lg font-bold text-black mb-2">2. School Science Fair Judge</h4>
-                            <p class="text-gray-700">Judge the school's science fair in December (Friday near end of December). You will be judging freshmen's science fair and posters. Required even if field trip is planned.</p>
+                        <h3 class="text-2xl font-bold text-white mb-2">Active Members</h3>
+                        <div class="text-5xl font-bold text-white mb-2">
+                            <span id="member-counter" class="tabular-nums">0</span>
                         </div>
-                        
-                        <div class="border-l-4 border-teal-500 pl-6">
-                            <h4 class="text-lg font-bold text-black mb-2">3. District Science Fair Judge</h4>
-                            <p class="text-gray-700">Judge the district science fair in January. You need your own transportation to Taylor/Hasting/Elsik High School. Event runs after school until approximately 6:00 PM.</p>
+                        <p class="text-teal-100">Dedicated science leaders</p>
+                    </div>
+
+                    <!-- Lives Saved Counter -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-xl mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                            </svg>
                         </div>
-                        
-                        <div class="border-l-4 border-teal-500 pl-6">
-                            <h4 class="text-lg font-bold text-black mb-2">4. Meeting Attendance</h4>
-                            <p class="text-gray-700">Attend all meetings unless an absence is prearranged with an officer or sponsor due to legitimate conflict.</p>
+                        <h3 class="text-2xl font-bold text-white mb-2">Number of Lives Saved</h3>
+                        <div class="text-5xl font-bold text-white mb-2">
+                            <span id="lives-counter" class="tabular-nums">0</span>
                         </div>
-                        
-                        <div class="border-l-4 border-teal-500 pl-6">
-                            <h4 class="text-lg font-bold text-black mb-2">5. Exemplify SNHS Mission</h4>
-                            <p class="text-gray-700 mb-2">The most important requirement - exemplify the mission statement of SNHS:</p>
-                            <p class="text-gray-600 italic">"The purpose of this organization shall be to encourage participation in and recognition of scientific and intellectual thought, to advance the student's knowledge of classical and modern science, to communicate with the scientific community, to aid the civic community with its comprehension of science, and to encourage students to participate in community service and, in turn, encourage a dedication to the pursuit of scientific knowledge that benefits all mankind."</p>
-                        </div>
+                        <p class="text-teal-100">Through health outreach</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Apply Section -->
-        <section id="apply" class="py-20 bg-gray-50">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="apply" class="section-padding bg-gray-50">
+            <div class="max-w-4xl mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">Apply for Membership</h2>
-                    <div class="w-24 h-1 bg-teal-500 mx-auto mb-6"></div>
-                    <p class="text-gray-700 text-lg mb-6">Ready to join our community of science scholars? Complete the application below.</p>
-                    <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 max-w-2xl mx-auto">
-                        <p class="text-red-800 font-bold">Application Deadline: Thursday, March 6th</p>
-                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Apply for Membership</h2>
+                    <p class="text-xl text-gray-600">Ready to join our community of science leaders? Submit your application below.</p>
                 </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
-                    <h3 class="text-2xl font-bold text-black mb-6">Required Documents</h3>
-                    <p class="text-gray-700 mb-4">You must submit the following to Dr. Chen or Mr. Nguyen:</p>
-                    <ul class="text-gray-700 space-y-3">
-                        <li class="flex items-start">
-                            <span class="bg-teal-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">1</span>
-                            <div>
-                                <strong>Unofficial Transcript:</strong> Must include all science classes and grades highlighted
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="bg-teal-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">2</span>
-                            <div>
-                                <strong>Grade Coverage:</strong> Must include freshmen, sophomore, and junior grades
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="bg-teal-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">3</span>
-                            <div>
-                                <strong>GPA Highlighted:</strong> Have the overall GPA highlighted (failure to highlight will result in automatic disqualification)
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-6">
-                        <p class="text-yellow-800"><strong>Note:</strong> Dr. Chen and Mr. Nguyen will carefully review all applicants based on character, grades, and your essay. You will be notified through Remind if accepted. Once accepted, there is a required membership fee of $20 (non-refundable) which includes your medal, shirt, and graduation cord.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
-                    <div class="mb-8">
-                        <div class="bg-teal-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-12 h-12 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/>
-                            </svg>
+                <div class="bg-white rounded-2xl p-8 lg:p-12 card-shadow text-center">
+                    <div class="max-w-2xl mx-auto">
+                        <div class="w-20 h-20 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                            <div class="text-4xl">📝</div>
                         </div>
-                        <h3 class="text-2xl font-bold text-black mb-4">Ready to Apply?</h3>
-                        <p class="text-gray-700 mb-6">Click the link below to access our official SNHS application form. Make sure you have your transcript ready before starting!</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Ready to Apply?</h3>
+                        <p class="text-gray-600 mb-8 leading-relaxed">Click the button below to access our official application form. Make sure you meet all the requirements before applying!</p>
                         
-                        <a href="https://forms.gle/2WXdkysANBzYcav78" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 hover-lift animate-glow mb-6">
-                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/>
-                            </svg>
+                        <div class="bg-teal-50 rounded-xl p-6 mb-8">
+                            <h4 class="font-semibold text-gray-900 mb-3">Before You Apply:</h4>
+                            <ul class="text-left text-gray-600 space-y-2">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-teal-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Minimum 3.75 weighted GPA
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-teal-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    All A's or B's in science classes
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-teal-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Enrolled in Dual Credit Science course
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-teal-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    10+ hours of community service
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf6cmBVYpQYanynRVAxg83WOr5L5CEkDgZX6K2G8fum-LzAGw/closedform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-teal-600 text-white py-4 px-8 rounded-xl hover:bg-teal-700 transition-colors font-semibold text-lg group">
                             Complete Application Form
-                            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                             </svg>
                         </a>
                         
-                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                            <div class="flex items-start">
-                                <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
-                                </svg>
-                                <div class="text-left">
-                                    <p class="text-blue-800 font-semibold mb-1">Before You Apply:</p>
-                                    <ul class="text-blue-700 text-sm space-y-1">
-                                        <li>• Have your unofficial transcript ready with science grades highlighted</li>
-                                        <li>• Ensure your overall GPA is highlighted on the transcript</li>
-                                        <li>• Prepare a thoughtful personal statement about your passion for science</li>
-                                        <li>• Submit all documents to Dr. Chen or Mr. Nguyen by the deadline</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <p class="text-sm text-gray-600">
-                            <strong>Need help?</strong> Contact Dr. Chen or Mr. Nguyen if you have questions about the application process.
-                        </p>
+                        <p class="text-sm text-gray-500 mt-4">The form will open in a new tab. Have your transcript and service records ready!</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Photo Gallery Section -->
-        <section id="photos" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Photo Gallery -->
+        <section id="gallery" class="section-padding bg-white">
+            <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">Photo Gallery</h2>
-                    <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
-                    <p class="text-gray-700 mt-6">Capturing memories and moments from our SNHS journey</p>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Photo Gallery</h2>
+                    <p class="text-xl text-gray-600">Meet our team and see highlights from our activities and events</p>
                 </div>
 
-                <!-- Photo Navigation Tabs -->
-                <div class="flex flex-wrap justify-center mb-12 space-x-2 space-y-2 md:space-y-0">
-                    <button onclick="showPhotoCategory('officers')" id="tab-officers" class="photo-tab active bg-teal-600 text-white px-6 py-3 rounded-lg font-semibold transition-all hover-lift">Current Officers</button>
-                    <button onclick="showPhotoCategory('advisors')" id="tab-advisors" class="photo-tab bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold transition-all hover-lift">Faculty Advisors</button>
-                    <button onclick="showPhotoCategory('members')" id="tab-members" class="photo-tab bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold transition-all hover-lift">Current Members</button>
-                    <button onclick="showPhotoCategory('past')" id="tab-past" class="photo-tab bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold transition-all hover-lift">Past Members</button>
-                    <button onclick="showPhotoCategory('activities')" id="tab-activities" class="photo-tab bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold transition-all hover-lift">Group Activities</button>
+                <!-- Gallery Navigation -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="gallery-nav-btn active bg-teal-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-teal-700 transition-colors" data-category="officers">Current Officers</button>
+                    <button class="gallery-nav-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors" data-category="advisors">Faculty Advisors</button>
+                    <button class="gallery-nav-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors" data-category="members">Current Members</button>
+                    <button class="gallery-nav-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors" data-category="past">Past Members</button>
+                    <button class="gallery-nav-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors" data-category="activities">Group Activities</button>
                 </div>
 
-                <!-- Current Officers Photos -->
-                <div id="officers-photos" class="photo-category">
-                    <h3 class="text-2xl font-bold text-black mb-8 text-center">Current Officers</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="text-center interactive-card hover-lift p-4 rounded-lg bg-gray-50" onclick="showMemberDetail('alex')">
-                            <div class="relative mb-4 group">
-                                <div class="bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-lg w-full h-48 flex items-center justify-center text-4xl font-bold shadow-lg overflow-hidden">
-                                    <svg class="w-20 h-20 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
-                                    <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-semibold">View Profile</span>
-                                </div>
+                <!-- Current Officers -->
+                <div class="gallery-category mb-16" data-category="officers">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Current Officers</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="group text-center">
+                            <div class="rounded-2xl h-67 w-67 mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-4 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'Sarah Johnson - President')" style="height: 268px; width: 268px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Sarah Johnson - President" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <h3 class="text-lg font-bold text-black">Alex Smith</h3>
-                            <p class="text-teal-600 font-semibold">President</p>
-                            <p class="text-sm text-gray-500">Senior • Biology Focus</p>
+                            <h4 class="text-lg font-semibold text-gray-900">Sarah Johnson</h4>
+                            <p class="text-teal-600 font-medium">President</p>
+                            <p class="text-gray-600 text-sm mt-1">Senior, AP Biology</p>
                         </div>
-                        <div class="text-center interactive-card hover-lift p-4 rounded-lg bg-gray-50" onclick="showMemberDetail('maria')">
-                            <div class="relative mb-4 group">
-                                <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-lg w-full h-48 flex items-center justify-center text-4xl font-bold shadow-lg overflow-hidden">
-                                    <svg class="w-20 h-20 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
-                                    <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-semibold">View Profile</span>
-                                </div>
+                        <div class="group text-center">
+                            <div class="rounded-2xl h-67 w-67 mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-4 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'Michael Chen - Vice President')" style="height: 268px; width: 268px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Michael Chen - Vice President" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <h3 class="text-lg font-bold text-black">Maria Johnson</h3>
-                            <p class="text-purple-600 font-semibold">Vice President</p>
-                            <p class="text-sm text-gray-500">Junior • Chemistry Focus</p>
+                            <h4 class="text-lg font-semibold text-gray-900">Michael Chen</h4>
+                            <p class="text-teal-600 font-medium">Vice President</p>
+                            <p class="text-gray-600 text-sm mt-1">Junior, AP Chemistry</p>
                         </div>
-                        <div class="text-center interactive-card hover-lift p-4 rounded-lg bg-gray-50" onclick="showMemberDetail('david')">
-                            <div class="relative mb-4 group">
-                                <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg w-full h-48 flex items-center justify-center text-4xl font-bold shadow-lg overflow-hidden">
-                                    <svg class="w-20 h-20 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
-                                    <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-semibold">View Profile</span>
-                                </div>
+                        <div class="group text-center">
+                            <div class="rounded-2xl h-67 w-67 mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-4 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'Emma Rodriguez - Secretary')" style="height: 268px; width: 268px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Emma Rodriguez - Secretary" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <h3 class="text-lg font-bold text-black">David Lee</h3>
-                            <p class="text-blue-600 font-semibold">Secretary</p>
-                            <p class="text-sm text-gray-500">Senior • Physics Focus</p>
+                            <h4 class="text-lg font-semibold text-gray-900">Emma Rodriguez</h4>
+                            <p class="text-teal-600 font-medium">Secretary</p>
+                            <p class="text-gray-600 text-sm mt-1">Junior, AP Physics</p>
                         </div>
-                        <div class="text-center interactive-card hover-lift p-4 rounded-lg bg-gray-50" onclick="showMemberDetail('sarah')">
-                            <div class="relative mb-4 group">
-                                <div class="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-lg w-full h-48 flex items-center justify-center text-4xl font-bold shadow-lg overflow-hidden">
-                                    <svg class="w-20 h-20 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
-                                    <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-semibold">View Profile</span>
-                                </div>
+                        <div class="group text-center">
+                            <div class="rounded-2xl h-67 w-67 mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-4 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'David Kim - Treasurer')" style="height: 268px; width: 268px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="David Kim - Treasurer" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <h3 class="text-lg font-bold text-black">Sarah Wilson</h3>
-                            <p class="text-green-600 font-semibold">Treasurer</p>
-                            <p class="text-sm text-gray-500">Junior • Environmental Science</p>
+                            <h4 class="text-lg font-semibold text-gray-900">David Kim</h4>
+                            <p class="text-teal-600 font-medium">Treasurer</p>
+                            <p class="text-gray-600 text-sm mt-1">Senior, Environmental Science</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Faculty Advisors Photos -->
-                <div id="advisors-photos" class="photo-category hidden">
-                    <h3 class="text-2xl font-bold text-black mb-8 text-center">Faculty Advisors</h3>
-                    <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                        <div class="text-center interactive-card hover-lift p-6 rounded-lg bg-gray-50" onclick="showAdvisorDetail('chen')">
-                            <div class="relative mb-6 group">
-                                <div class="bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-lg w-full h-64 flex items-center justify-center text-5xl font-bold shadow-lg overflow-hidden">
-                                    <svg class="w-24 h-24 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
-                                    <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-semibold">View Profile</span>
-                                </div>
+                <!-- Faculty Advisors -->
+                <div class="gallery-category mb-16 hidden" data-category="advisors">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Faculty Advisors</h3>
+                    <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                        <div class="group text-center">
+                            <div class="rounded-2xl mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-4 cursor-pointer" onclick="openFacultyModal('nguyen')" style="height: 313px; width: 313px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Mr. Peter Nguyen - Lead Advisor" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <h3 class="text-xl font-bold text-black mb-2">Dr. Chen</h3>
-                            <p class="text-blue-600 font-semibold mb-2">Faculty Advisor</p>
-                            <p class="text-gray-600 mb-3">Science Department</p>
-                            <div class="bg-blue-50 p-3 rounded-lg">
-                                <p class="text-sm text-gray-700">Specializes in Biology and Chemistry</p>
-                                <p class="text-sm text-gray-700">15+ years teaching experience</p>
-                            </div>
+                            <h4 class="text-lg font-semibold text-gray-900">Mr. Peter Nguyen</h4>
+                            <p class="text-blue-600 font-medium">Lead Advisor</p>
+                            <p class="text-gray-600 text-sm mt-1">Chemistry Department</p>
                         </div>
-                        <div class="text-center interactive-card hover-lift p-6 rounded-lg bg-gray-50" onclick="showAdvisorDetail('nguyen')">
-                            <div class="relative mb-6 group">
-                                <div class="bg-gradient-to-br from-green-600 to-green-700 text-white rounded-lg w-full h-64 flex items-center justify-center text-5xl font-bold shadow-lg overflow-hidden">
-                                    <svg class="w-24 h-24 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
-                                    <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity font-semibold">View Profile</span>
-                                </div>
+                        <div class="group text-center">
+                            <div class="rounded-2xl mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-4 cursor-pointer" onclick="openFacultyModal('martinez')" style="height: 313px; width: 313px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Dr. Lisa Martinez - Co-Advisor" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <h3 class="text-xl font-bold text-black mb-2">Mr. Nguyen</h3>
-                            <p class="text-green-600 font-semibold mb-2">Faculty Advisor</p>
-                            <p class="text-gray-600 mb-3">Science Department</p>
-                            <div class="bg-green-50 p-3 rounded-lg">
-                                <p class="text-sm text-gray-700">Specializes in Physics and Engineering</p>
-                                <p class="text-sm text-gray-700">12+ years teaching experience</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center mt-12">
-                        <div class="bg-teal-50 p-6 rounded-lg max-w-3xl mx-auto">
-                            <h4 class="text-xl font-bold text-black mb-4">Our Dedicated Advisors</h4>
-                            <p class="text-gray-700 mb-4">Dr. Chen and Mr. Nguyen provide invaluable guidance and support to our SNHS chapter. They help coordinate our service activities, mentor our officers, and ensure we maintain the highest standards of academic excellence and character.</p>
-                            <div class="grid md:grid-cols-3 gap-4 text-center">
-                                <div>
-                                    <div class="text-2xl font-bold text-teal-600">8</div>
-                                    <p class="text-gray-700">Years Leading SNHS</p>
-                                </div>
-                                <div>
-                                    <div class="text-2xl font-bold text-teal-600">200+</div>
-                                    <p class="text-gray-700">Students Mentored</p>
-                                </div>
-                                <div>
-                                    <div class="text-2xl font-bold text-teal-600">100%</div>
-                                    <p class="text-gray-700">Dedication to Excellence</p>
-                                </div>
-                            </div>
+                            <h4 class="text-lg font-semibold text-gray-900">Dr. Lisa Martinez</h4>
+                            <p class="text-blue-600 font-medium">Co-Advisor</p>
+                            <p class="text-gray-600 text-sm mt-1">Biology Department</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Current Members Photos -->
-                <div id="members-photos" class="photo-category hidden">
-                    <h3 class="text-2xl font-bold text-black mb-8 text-center">Current Members</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                        <div class="photo-item interactive-card hover-lift" onclick="openPhotoModal('member1')">
-                            <div class="bg-gradient-to-br from-teal-400 to-teal-500 text-white rounded-lg aspect-square flex items-center justify-center text-lg font-bold shadow-lg">
-                                <svg class="w-12 h-12 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                </svg>
+                <!-- Current Members -->
+                <div class="gallery-category mb-16 hidden" data-category="members">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Current Members</h3>
+                    <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
+                        <div class="group text-center">
+                            <div class="rounded-xl mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-2 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'Alex Thompson - Senior')" style="height: 179px; width: 179px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Alex Thompson" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <p class="text-center text-sm font-semibold mt-2">Emma Brown</p>
+                            <h5 class="text-sm font-semibold text-gray-900">Alex Thompson</h5>
+                            <p class="text-gray-600 text-xs">Senior</p>
                         </div>
-                        <div class="photo-item interactive-card hover-lift" onclick="openPhotoModal('member2')">
-                            <div class="bg-gradient-to-br from-blue-400 to-blue-500 text-white rounded-lg aspect-square flex items-center justify-center text-lg font-bold shadow-lg">
-                                <svg class="w-12 h-12 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                </svg>
+                        <div class="group text-center">
+                            <div class="rounded-xl mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-2 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'Maya Patel - Junior')" style="height: 179px; width: 179px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Maya Patel" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <p class="text-center text-sm font-semibold mt-2">Michael Chen</p>
+                            <h5 class="text-sm font-semibold text-gray-900">Maya Patel</h5>
+                            <p class="text-gray-600 text-xs">Junior</p>
                         </div>
-                        <div class="photo-item interactive-card hover-lift" onclick="openPhotoModal('member3')">
-                            <div class="bg-gradient-to-br from-purple-400 to-purple-500 text-white rounded-lg aspect-square flex items-center justify-center text-lg font-bold shadow-lg">
-                                <svg class="w-12 h-12 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                </svg>
+                        <div class="group text-center">
+                            <div class="rounded-xl mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-2 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'James Wilson - Senior')" style="height: 179px; width: 179px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="James Wilson" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <p class="text-center text-sm font-semibold mt-2">Jessica Davis</p>
+                            <h5 class="text-sm font-semibold text-gray-900">James Wilson</h5>
+                            <p class="text-gray-600 text-xs">Senior</p>
                         </div>
-                        <div class="photo-item interactive-card hover-lift" onclick="openPhotoModal('member4')">
-                            <div class="bg-gradient-to-br from-red-400 to-red-500 text-white rounded-lg aspect-square flex items-center justify-center text-lg font-bold shadow-lg">
-                                <svg class="w-12 h-12 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                </svg>
+                        <div class="group text-center">
+                            <div class="rounded-xl mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-2 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'Sophia Lee - Junior')" style="height: 179px; width: 179px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Sophia Lee" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <p class="text-center text-sm font-semibold mt-2">Ryan Thompson</p>
+                            <h5 class="text-sm font-semibold text-gray-900">Sophia Lee</h5>
+                            <p class="text-gray-600 text-xs">Junior</p>
                         </div>
-                        <div class="photo-item interactive-card hover-lift" onclick="openPhotoModal('member5')">
-                            <div class="bg-gradient-to-br from-yellow-400 to-yellow-500 text-white rounded-lg aspect-square flex items-center justify-center text-lg font-bold shadow-lg">
-                                <svg class="w-12 h-12 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                </svg>
+                        <div class="group text-center">
+                            <div class="rounded-xl mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-2 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'Ryan Garcia - Senior')" style="height: 179px; width: 179px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Ryan Garcia" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <p class="text-center text-sm font-semibold mt-2">Ashley Garcia</p>
+                            <h5 class="text-sm font-semibold text-gray-900">Ryan Garcia</h5>
+                            <p class="text-gray-600 text-xs">Senior</p>
                         </div>
-                        <div class="photo-item interactive-card hover-lift" onclick="openPhotoModal('member6')">
-                            <div class="bg-gradient-to-br from-indigo-400 to-indigo-500 text-white rounded-lg aspect-square flex items-center justify-center text-lg font-bold shadow-lg">
-                                <svg class="w-12 h-12 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                                </svg>
+                        <div class="group text-center">
+                            <div class="rounded-xl mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-2 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'Zoe Anderson - Junior')" style="height: 179px; width: 179px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Zoe Anderson" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <p class="text-center text-sm font-semibold mt-2">Tyler Martinez</p>
+                            <h5 class="text-sm font-semibold text-gray-900">Zoe Anderson</h5>
+                            <p class="text-gray-600 text-xs">Junior</p>
                         </div>
                     </div>
-                    <div class="text-center mt-8">
-                        <button onclick="showAllMembers()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-6 rounded-lg transition-colors hover-lift">View All 47 Members</button>
+                    <div class="text-center mt-6">
+                        <p class="text-gray-600">...and 24 more dedicated members</p>
                     </div>
                 </div>
 
-                <!-- Past Members Photos -->
-                <div id="past-photos" class="photo-category hidden">
-                    <h3 class="text-2xl font-bold text-black mb-8 text-center">Past Members & Alumni</h3>
+                <!-- Past Members -->
+                <div class="gallery-category mb-16 hidden" data-category="past">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Notable Past Members</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="group text-center">
+                            <div class="rounded-2xl mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-4 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'Dr. Amanda Foster - Class of 2020, Now at MIT Medical School')" style="height: 268px; width: 268px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Dr. Amanda Foster - Class of 2020" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-900">Dr. Amanda Foster</h4>
+                            <p class="text-purple-600 font-medium">Class of 2020</p>
+                            <p class="text-gray-600 text-sm mt-1">Now at MIT Medical School</p>
+                        </div>
+                        <div class="group text-center">
+                            <div class="rounded-2xl mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-4 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'Kevin Zhang - Class of 2021, Stanford Bioengineering')" style="height: 268px; width: 268px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Kevin Zhang - Class of 2021" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-900">Kevin Zhang</h4>
+                            <p class="text-purple-600 font-medium">Class of 2021</p>
+                            <p class="text-gray-600 text-sm mt-1">Stanford Bioengineering</p>
+                        </div>
+                        <div class="group text-center">
+                            <div class="rounded-2xl mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-4 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'Rachel Cooper - Class of 2019, NASA Intern Program')" style="height: 268px; width: 268px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Rachel Cooper - Class of 2019" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-900">Rachel Cooper</h4>
+                            <p class="text-purple-600 font-medium">Class of 2019</p>
+                            <p class="text-gray-600 text-sm mt-1">NASA Intern Program</p>
+                        </div>
+                        <div class="group text-center">
+                            <div class="rounded-2xl mx-auto overflow-hidden group-hover:scale-105 transition-transform duration-300 mb-4 cursor-pointer" onclick="openPhotoModal('https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg', 'Marcus Johnson - Class of 2022, Harvard Chemistry PhD')" style="height: 268px; width: 268px;">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Marcus Johnson - Class of 2022" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-900">Marcus Johnson</h4>
+                            <p class="text-purple-600 font-medium">Class of 2022</p>
+                            <p class="text-gray-600 text-sm mt-1">Harvard Chemistry PhD</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group Activities -->
+                <div class="gallery-category hidden" data-category="activities">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Group Activities</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover-lift">
-                            <div class="bg-gradient-to-br from-gray-400 to-gray-500 text-white rounded-lg w-full h-48 flex items-center justify-center mb-4 shadow-lg">
-                                <div class="text-center">
-                                    <svg class="w-16 h-16 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-                                    </svg>
-                                    <p class="text-sm">Class of 2023</p>
-                                </div>
+                        <div class="group cursor-pointer">
+                            <div class="rounded-2xl h-64 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Laboratory Research" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <h4 class="text-lg font-bold text-black mb-2">Class of 2023 Officers</h4>
-                            <p class="text-gray-600 text-sm">Former President: Jennifer Liu (Now at MIT)</p>
-                            <p class="text-gray-600 text-sm">Former VP: Marcus Rodriguez (Now at Stanford)</p>
-                            <p class="text-gray-600 text-sm">12 graduates now in STEM programs</p>
-                        </div>
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover-lift">
-                            <div class="bg-gradient-to-br from-gray-500 to-gray-600 text-white rounded-lg w-full h-48 flex items-center justify-center mb-4 shadow-lg">
-                                <div class="text-center">
-                                    <svg class="w-16 h-16 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-                                    </svg>
-                                    <p class="text-sm">Class of 2022</p>
-                                </div>
-                            </div>
-                            <h4 class="text-lg font-bold text-black mb-2">Class of 2022 Officers</h4>
-                            <p class="text-gray-600 text-sm">Former President: Kevin Park (Now at Caltech)</p>
-                            <p class="text-gray-600 text-sm">Former VP: Samantha White (Now at Harvard)</p>
-                            <p class="text-gray-600 text-sm">15 graduates in top universities</p>
-                        </div>
-                        <div class="bg-white rounded-lg shadow-lg p-6 hover-lift">
-                            <div class="bg-gradient-to-br from-gray-600 to-gray-700 text-white rounded-lg w-full h-48 flex items-center justify-center mb-4 shadow-lg">
-                                <div class="text-center">
-                                    <svg class="w-16 h-16 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-                                    </svg>
-                                    <p class="text-sm">Class of 2021</p>
-                                </div>
-                            </div>
-                            <h4 class="text-lg font-bold text-black mb-2">Class of 2021 Officers</h4>
-                            <p class="text-gray-600 text-sm">Former President: Amanda Foster (Now at Johns Hopkins)</p>
-                            <p class="text-gray-600 text-sm">Former VP: Daniel Kim (Now at UC Berkeley)</p>
-                            <p class="text-gray-600 text-sm">18 graduates pursuing STEM careers</p>
-                        </div>
-                    </div>
-                    <div class="text-center mt-8">
-                        <div class="bg-teal-50 p-6 rounded-lg">
-                            <h4 class="text-xl font-bold text-black mb-4">Alumni Success Stories</h4>
-                            <div class="grid md:grid-cols-3 gap-4 text-center">
-                                <div>
-                                    <div class="text-2xl font-bold text-teal-600">150+</div>
-                                    <p class="text-gray-700">Alumni in STEM Fields</p>
-                                </div>
-                                <div>
-                                    <div class="text-2xl font-bold text-teal-600">85%</div>
-                                    <p class="text-gray-700">Pursuing Advanced Degrees</p>
-                                </div>
-                                <div>
-                                    <div class="text-2xl font-bold text-teal-600">25+</div>
-                                    <p class="text-gray-700">Published Research Papers</p>
-                                </div>
+                            <div class="mt-4">
+                                <h4 class="text-lg font-semibold text-gray-900">Laboratory Research</h4>
+                                <p class="text-gray-600 mt-1">Members conducting advanced research projects and experiments</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Group Activities Photos -->
-                <div id="activities-photos" class="photo-category hidden">
-                    <h3 class="text-2xl font-bold text-black mb-8 text-center">Group Activities & Events</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="photo-item interactive-card hover-lift" onclick="openActivityModal('science-fair')">
-                            <div class="bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-lg h-48 flex items-center justify-center mb-3 shadow-lg relative overflow-hidden">
-                                <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-                                <div class="text-center z-10">
-                                    <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    <p class="font-bold">Science Fair Judging</p>
-                                </div>
+                        <div class="group cursor-pointer">
+                            <div class="rounded-2xl h-64 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Environmental Service" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <h4 class="font-bold text-black">Annual Science Fair</h4>
-                            <p class="text-gray-600 text-sm">Members judging student projects</p>
-                        </div>
-                        <div class="photo-item interactive-card hover-lift" onclick="openActivityModal('blood-drive')">
-                            <div class="bg-gradient-to-br from-red-500 to-pink-600 text-white rounded-lg h-48 flex items-center justify-center mb-3 shadow-lg relative overflow-hidden">
-                                <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-                                <div class="text-center z-10">
-                                    <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <p class="font-bold">Blood Drive</p>
-                                </div>
+                            <div class="mt-4">
+                                <h4 class="text-lg font-semibold text-gray-900">Environmental Service</h4>
+                                <p class="text-gray-600 mt-1">Community cleanup and conservation efforts in action</p>
                             </div>
-                            <h4 class="font-bold text-black">Blood Drive Volunteers</h4>
-                            <p class="text-gray-600 text-sm">Organizing community blood drives</p>
                         </div>
-                        <div class="photo-item interactive-card hover-lift" onclick="openActivityModal('lab-work')">
-                            <div class="bg-gradient-to-br from-green-500 to-teal-600 text-white rounded-lg h-48 flex items-center justify-center mb-3 shadow-lg relative overflow-hidden">
-                                <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-                                <div class="text-center z-10">
-                                    <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <p class="font-bold">Lab Research</p>
-                                </div>
+                        <div class="group cursor-pointer">
+                            <div class="rounded-2xl h-64 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Awards Ceremony" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <h4 class="font-bold text-black">Laboratory Sessions</h4>
-                            <p class="text-gray-600 text-sm">Collaborative research projects</p>
-                        </div>
-                        <div class="photo-item interactive-card hover-lift" onclick="openActivityModal('field-trip')">
-                            <div class="bg-gradient-to-br from-yellow-500 to-orange-600 text-white rounded-lg h-48 flex items-center justify-center mb-3 shadow-lg relative overflow-hidden">
-                                <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-                                <div class="text-center z-10">
-                                    <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <p class="font-bold">Field Trips</p>
-                                </div>
+                            <div class="mt-4">
+                                <h4 class="text-lg font-semibold text-gray-900">Awards Ceremony</h4>
+                                <p class="text-gray-600 mt-1">Recognizing outstanding member achievements and contributions</p>
                             </div>
-                            <h4 class="font-bold text-black">Educational Field Trips</h4>
-                            <p class="text-gray-600 text-sm">Visiting research facilities</p>
                         </div>
-                        <div class="photo-item interactive-card hover-lift" onclick="openActivityModal('meetings')">
-                            <div class="bg-gradient-to-br from-indigo-500 to-blue-600 text-white rounded-lg h-48 flex items-center justify-center mb-3 shadow-lg relative overflow-hidden">
-                                <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-                                <div class="text-center z-10">
-                                    <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-                                    </svg>
-                                    <p class="font-bold">Meetings</p>
-                                </div>
+                        <div class="group cursor-pointer">
+                            <div class="rounded-2xl h-64 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Tutoring Sessions" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
                             </div>
-                            <h4 class="font-bold text-black">Weekly Meetings</h4>
-                            <p class="text-gray-600 text-sm">Planning and collaboration sessions</p>
-                        </div>
-                        <div class="photo-item interactive-card hover-lift" onclick="openActivityModal('community')">
-                            <div class="bg-gradient-to-br from-purple-500 to-pink-600 text-white rounded-lg h-48 flex items-center justify-center mb-3 shadow-lg relative overflow-hidden">
-                                <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-                                <div class="text-center z-10">
-                                    <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <p class="font-bold">Community Service</p>
-                                </div>
+                            <div class="mt-4">
+                                <h4 class="text-lg font-semibold text-gray-900">Tutoring Sessions</h4>
+                                <p class="text-gray-600 mt-1">Peer-to-peer science education and academic support</p>
                             </div>
-                            <h4 class="font-bold text-black">Community Outreach</h4>
-                            <p class="text-gray-600 text-sm">Science education programs</p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Statistics Section -->
-                <div class="text-center mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                        <div class="bg-teal-50 p-6 rounded-lg hover-lift">
-                            <div class="text-3xl font-bold text-teal-600 mb-2" id="member-count">0</div>
-                            <p class="text-gray-700">Active Members</p>
+                        <div class="group cursor-pointer">
+                            <div class="rounded-2xl h-64 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Science Fair" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            </div>
+                            <div class="mt-4">
+                                <h4 class="text-lg font-semibold text-gray-900">Science Fair</h4>
+                                <p class="text-gray-600 mt-1">Annual science fair participation and project judging</p>
+                            </div>
                         </div>
-                        <div class="bg-teal-50 p-6 rounded-lg hover-lift">
-                            <div class="text-3xl font-bold text-teal-600 mb-2" id="service-hours">0</div>
-                            <p class="text-gray-700">Service Hours This Year</p>
-                        </div>
-                        <div class="bg-teal-50 p-6 rounded-lg hover-lift">
-                            <div class="text-3xl font-bold text-teal-600 mb-2" id="gpa-average">0.0</div>
-                            <p class="text-gray-700">Average Member GPA</p>
+                        <div class="group cursor-pointer">
+                            <div class="rounded-2xl h-64 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                                <img src="https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg" alt="Team Building" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                            </div>
+                            <div class="mt-4">
+                                <h4 class="text-lg font-semibold text-gray-900">Team Building</h4>
+                                <p class="text-gray-600 mt-1">Building connections through collaborative science activities</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FAQs Section -->
-        <section id="faqs" class="py-20 bg-gray-50">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- FAQ Section -->
+        <section id="faq" class="section-padding bg-gray-50">
+            <div class="max-w-4xl mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">Frequently Asked Questions</h2>
-                
-    
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+                    <p class="text-xl text-gray-600">Get answers to common questions about Science NHS membership</p>
                 </div>
                 <div class="space-y-6">
-                    <div class="bg-white rounded-lg shadow-lg">
-                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(1)">
+                    <div class="bg-white rounded-2xl card-shadow overflow-hidden">
+                        <button class="faq-button w-full text-left p-8 focus:outline-none focus:ring-2 focus:ring-teal-500" data-target="faq1">
                             <div class="flex justify-between items-center">
-                                <h3 class="text-lg font-bold text-black">Do I have to donate blood?</h3>
-                                <svg id="faq-icon-1" class="w-5 h-5 text-teal-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                                </svg>
+                                <h3 class="text-lg font-semibold text-gray-900 pr-4">Do I have to donate blood?</h3>
+                                <span class="faq-icon text-teal-600 text-2xl font-light">+</span>
                             </div>
                         </button>
-                        <div id="faq-content-1" class="hidden px-6 pb-6">
-                            <p class="text-gray-700">No, you do not have to donate blood to join. You just need to volunteer for the blood drive and science fair.</p>
+                        <div id="faq1" class="faq-content hidden px-8 pb-8">
+                            <p class="text-gray-600 leading-relaxed">No, you do not have to donate blood to join. You just need to volunteer for the blood drive and science fair.</p>
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg">
-                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(2)">
+                    <div class="bg-white rounded-2xl card-shadow overflow-hidden">
+                        <button class="faq-button w-full text-left p-8 focus:outline-none focus:ring-2 focus:ring-teal-500" data-target="faq2">
                             <div class="flex justify-between items-center">
-                                <h3 class="text-lg font-bold text-black">What is the benefit of joining Science National Honor Society?</h3>
-                                <svg id="faq-icon-2" class="w-5 h-5 text-teal-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                                </svg>
+                                <h3 class="text-lg font-semibold text-gray-900 pr-4">What is the benefit of joining Science National Honor Society?</h3>
+                                <span class="faq-icon text-teal-600 text-2xl font-light">+</span>
                             </div>
                         </button>
-                        <div id="faq-content-2" class="hidden px-6 pb-6">
-                            <p class="text-gray-700">It looks good on college transcript because it tells the university/college that you have excellent character, grades, and shows that teachers trust you. That is exactly what universities and colleges look for in an applicant. If you are in Science National Honor Society, you basically tell the schools you have what they are searching for. You also get a free t-shirt.</p>
+                        <div id="faq2" class="faq-content hidden px-8 pb-8">
+                            <p class="text-gray-600 leading-relaxed">It looks good on college transcript because it tells the university/college that you have excellent character, grades, and shows that teachers trust you. That is exactly what universities and colleges look for in an applicant. If you are in Science National Honor Society, you basically tell the schools you have what they are searching for. You also get a free t-shirt.</p>
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg">
-                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(3)">
+                    <div class="bg-white rounded-2xl card-shadow overflow-hidden">
+                        <button class="faq-button w-full text-left p-8 focus:outline-none focus:ring-2 focus:ring-teal-500" data-target="faq3">
                             <div class="flex justify-between items-center">
-                                <h3 class="text-lg font-bold text-black">Is my class considered a dual credit science class?</h3>
-                                <svg id="faq-icon-3" class="w-5 h-5 text-teal-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                                </svg>
+                                <h3 class="text-lg font-semibold text-gray-900 pr-4">Is my class considered a dual credit science class?</h3>
+                                <span class="faq-icon text-teal-600 text-2xl font-light">+</span>
                             </div>
                         </button>
-                        <div id="faq-content-3" class="hidden px-6 pb-6">
-                            <div class="text-gray-700">
-                                <p class="mb-3">Here is the list of the HCC classes that we accept. If it is not listed below, we will not count it! Classes from Social and Behavioral Sciences will not count.</p>
-                                <div class="space-y-2">
+                        <div id="faq3" class="faq-content hidden px-8 pb-8">
+                            <div class="text-gray-600 leading-relaxed">
+                                <p class="mb-4">Here is the list of the HCC classes that we accept. If it is not listed below, we will not count it! Classes from Social and Behavioral Sciences will not count.</p>
+                                <div class="space-y-3">
                                     <div>
-                                        <strong>Chemistry:</strong> CHEM 1305, 1405, 1411, 1412
+                                        <p class="font-semibold text-gray-800">Chemistry:</p>
+                                        <p>CHEM 1305, 1405, 1411, 1412</p>
                                     </div>
                                     <div>
-                                        <strong>Geography:</strong> GEOG 1301
+                                        <p class="font-semibold text-gray-800">Geography:</p>
+                                        <p>GEOG 1301</p>
                                     </div>
                                     <div>
-                                        <strong>Geology:</strong> GEOL 1305, 1345, 1347, 1403, 1404
+                                        <p class="font-semibold text-gray-800">Geology:</p>
+                                        <p>GEOL 1305, 1345, 1347, 1403, 1404</p>
                                     </div>
                                     <div>
-                                        <strong>Physics:</strong> PHYS 1305, 1401, 1402, 2325, 2125(Lab), 2326, 2126(Lab)
+                                        <p class="font-semibold text-gray-800">Physics:</p>
+                                        <p>PHYS 1305, 1401, 1402, 2325, 2125(Lab), 2326, 2126(Lab)</p>
                                     </div>
                                     <div>
-                                        <strong>Life & Physical Sciences:</strong>
-                                        <br>ANTH 2301
-                                        <br>ASTR 1303, 1304, 1403, 1404
-                                        <br>BIOL 1308, 1309, 1322, 1406, 1407
+                                        <p class="font-semibold text-gray-800">Life & Physical Sciences:</p>
+                                        <p>ANTH 2301</p>
+                                        <p>ASTR 1303, 1304, 1403, 1404</p>
+                                        <p>BIOL 1308, 1309, 1322, 1406, 1407</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg">
-                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(4)">
+                    <div class="bg-white rounded-2xl card-shadow overflow-hidden">
+                        <button class="faq-button w-full text-left p-8 focus:outline-none focus:ring-2 focus:ring-teal-500" data-target="faq4">
                             <div class="flex justify-between items-center">
-                                <h3 class="text-lg font-bold text-black">How do I know if I got accepted or not?</h3>
-                                <svg id="faq-icon-4" class="w-5 h-5 text-teal-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                                </svg>
+                                <h3 class="text-lg font-semibold text-gray-900 pr-4">How do I know if I got accepted or not?</h3>
+                                <span class="faq-icon text-teal-600 text-2xl font-light">+</span>
                             </div>
                         </button>
-                        <div id="faq-content-4" class="hidden px-6 pb-6">
-                            <p class="text-gray-700">We find you and let you know. Most likely through Remind. If you are not contacted, that means you were not accepted.</p>
+                        <div id="faq4" class="faq-content hidden px-8 pb-8">
+                            <p class="text-gray-600 leading-relaxed">We find you and let you know. Most likely through Remind. If you are not contacted, that means you were not accepted.</p>
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg">
-                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(5)">
+                    <div class="bg-white rounded-2xl card-shadow overflow-hidden">
+                        <button class="faq-button w-full text-left p-8 focus:outline-none focus:ring-2 focus:ring-teal-500" data-target="faq5">
                             <div class="flex justify-between items-center">
-                                <h3 class="text-lg font-bold text-black">What criteria do you look for?</h3>
-                                <svg id="faq-icon-5" class="w-5 h-5 text-teal-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                                </svg>
+                                <h3 class="text-lg font-semibold text-gray-900 pr-4">What criteria do you look for?</h3>
+                                <span class="faq-icon text-teal-600 text-2xl font-light">+</span>
                             </div>
                         </button>
-                        <div id="faq-content-5" class="hidden px-6 pb-6">
-                            <div class="text-gray-700">
-                                <p class="mb-3">Besides the grades, we (all four science teachers) look at your character as a person:</p>
-                                <ul class="space-y-1 mb-3">
+                        <div id="faq5" class="faq-content hidden px-8 pb-8">
+                            <div class="text-gray-600 leading-relaxed">
+                                <p class="mb-4">Besides the grades, we (all four science teachers) look at your character as a person:</p>
+                                <ul class="space-y-2 mb-4">
                                     <li>• Have you been excessively tardy? (This includes being late to study hall!)</li>
                                     <li>• Are you respectful to your peers and teachers?</li>
                                     <li>• Are you mature enough to handle failure?</li>
@@ -987,30 +715,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg">
-                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(6)">
+                    <div class="bg-white rounded-2xl card-shadow overflow-hidden">
+                        <button class="faq-button w-full text-left p-8 focus:outline-none focus:ring-2 focus:ring-teal-500" data-target="faq6">
                             <div class="flex justify-between items-center">
-                                <h3 class="text-lg font-bold text-black">Are the decisions final?</h3>
-                                <svg id="faq-icon-6" class="w-5 h-5 text-teal-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                                </svg>
+                                <h3 class="text-lg font-semibold text-gray-900 pr-4">Are the decisions final?</h3>
+                                <span class="faq-icon text-teal-600 text-2xl font-light">+</span>
                             </div>
                         </button>
-                        <div id="faq-content-6" class="hidden px-6 pb-6">
-                            <p class="text-gray-700">Yes, they are. We go through the applications twice to confirm our decisions.</p>
+                        <div id="faq6" class="faq-content hidden px-8 pb-8">
+                            <p class="text-gray-600 leading-relaxed">Yes, they are. We go through the applications twice to confirm our decisions.</p>
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg">
-                        <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(7)">
+                    <div class="bg-white rounded-2xl card-shadow overflow-hidden">
+                        <button class="faq-button w-full text-left p-8 focus:outline-none focus:ring-2 focus:ring-teal-500" data-target="faq7">
                             <div class="flex justify-between items-center">
-                                <h3 class="text-lg font-bold text-black">Can I be removed once I am accepted?</h3>
-                                <svg id="faq-icon-7" class="w-5 h-5 text-teal-500 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                                </svg>
+                                <h3 class="text-lg font-semibold text-gray-900 pr-4">Can I be removed once I am accepted?</h3>
+                                <span class="faq-icon text-teal-600 text-2xl font-light">+</span>
                             </div>
                         </button>
-                        <div id="faq-content-7" class="hidden px-6 pb-6">
-                            <p class="text-gray-700">Yes, you can. If you have a disciplinary issue (suspension) or miss a meeting for no reason, then we will remove you.</p>
+                        <div id="faq7" class="faq-content hidden px-8 pb-8">
+                            <p class="text-gray-600 leading-relaxed">Yes, you can. If you have a disciplinary issue (suspension) or miss a meeting for no reason, then we will remove you.</p>
                         </div>
                     </div>
                 </div>
@@ -1018,83 +742,170 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-black text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="contact" class="section-padding bg-white">
+            <div class="max-w-4xl mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
-                    <div class="w-24 h-1 bg-teal-500 mx-auto"></div>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Contact Us</h2>
+                    <p class="text-xl text-gray-600">Have questions? We're here to help! Send us a message and we'll get back to you soon.</p>
                 </div>
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <svg class="w-6 h-6 text-teal-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                                </svg>
-                                <span>snhs@school.edu</span>
+                <div class="bg-gray-50 rounded-2xl p-8 lg:p-12">
+                    <form id="contact-form" class="space-y-8">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="contactName" class="block text-sm font-semibold text-gray-900 mb-3">Your Name</label>
+                                <input type="text" id="contactName" name="contactName" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors bg-white">
                             </div>
-                            <div class="flex items-center">
-                                <svg class="w-6 h-6 text-teal-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span>Room 204, Science Building</span>
-                            </div>
-                            <div class="flex items-center">
-                                <svg class="w-6 h-6 text-teal-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                                </svg>
-                                <span>Meetings: Wednesdays 3:30 PM</span>
+                            <div>
+                                <label for="contactEmail" class="block text-sm font-semibold text-gray-900 mb-3">Your Email</label>
+                                <input type="email" id="contactEmail" name="contactEmail" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors bg-white">
                             </div>
                         </div>
-                        <div class="mt-8">
-                            <h4 class="text-lg font-bold mb-4">Faculty Advisors</h4>
-                            <div class="space-y-4">
-                                <div>
-                                    <p class="text-gray-300">Dr. Chen</p>
-                                    <p class="text-gray-300">Science Department</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-300">Mr. Nguyen</p>
-                                    <p class="text-gray-300">Science Department</p>
-                                </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-semibold text-gray-900 mb-3">Subject</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors bg-white">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-semibold text-gray-900 mb-3">Your Question</label>
+                            <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors bg-white" placeholder="Type your question here..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-teal-600 text-white py-4 px-8 rounded-xl hover:bg-teal-700 transition-colors font-semibold text-lg">Send Message</button>
+                    </form>
+                    <div id="contact-success" class="hidden mt-8 p-6 bg-green-50 border border-green-200 text-green-800 rounded-xl">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold">Message Sent Successfully!</h3>
+                                <p class="mt-1">Thank you for contacting us. We'll respond to your question soon.</p>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <form class="space-y-6" onsubmit="handleContact(event)">
-                            <div>
-                                <label for="contactName" class="block text-sm font-medium mb-2">Name</label>
-                                <input type="text" id="contactName" name="contactName" required class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-white">
-                            </div>
-                            <div>
-                                <label for="contactEmail" class="block text-sm font-medium mb-2">Email</label>
-                                <input type="email" id="contactEmail" name="contactEmail" required class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-white">
-                            </div>
-                            <div>
-                                <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
-                                <input type="text" id="subject" name="subject" required class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-white">
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium mb-2">Message</label>
-                                <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-white"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">Send Message</button>
-                        </form>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Photo Modal -->
+    <div id="photo-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+        <div class="relative max-w-4xl max-h-full">
+            <button onclick="closePhotoModal()" class="absolute -top-12 right-0 text-white hover:text-gray-300 text-2xl font-bold z-10">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <img id="modal-image" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg">
+            <div id="modal-caption" class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4 text-center rounded-b-lg"></div>
+        </div>
+    </div>
+
+    <!-- Faculty Modal -->
+    <div id="faculty-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-full overflow-y-auto transform transition-all duration-300 scale-95 opacity-0" id="faculty-modal-content">
+            <div class="relative p-8">
+                <button onclick="closeFacultyModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                
+                <div class="text-center mb-8">
+                    <div class="w-32 h-32 rounded-2xl mx-auto mb-4 overflow-hidden">
+                        <img id="faculty-modal-image" src="" alt="" class="w-full h-full object-cover">
+                    </div>
+                    <h3 id="faculty-modal-name" class="text-2xl font-bold text-gray-900 mb-2"></h3>
+                    <p id="faculty-modal-title" class="text-blue-600 font-medium text-lg mb-1"></p>
+                    <p id="faculty-modal-department" class="text-gray-600"></p>
+                </div>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
+                            </svg>
+                            Education
+                        </h4>
+                        <div id="faculty-modal-education" class="text-gray-600 space-y-1"></div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Specialization
+                        </h4>
+                        <div id="faculty-modal-specialization" class="text-gray-600 space-y-1"></div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                            Courses Taught
+                        </h4>
+                        <div id="faculty-modal-courses" class="text-gray-600 space-y-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h3 class="text-xl font-bold text-teal-400 mb-2">Science National Honor Society</h3>
-                <p class="text-gray-400 mb-4">Inspiring the next generation of scientific leaders</p>
-                <p class="text-sm text-gray-500">&copy; 2024 Science National Honor Society. All rights reserved.</p>
+    <footer class="bg-gray-900 text-white section-padding">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 flex items-center justify-center mr-2">
+                            <div class="text-2xl slow-spin">⚛️</div>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold">Alief Early College</div>
+                            <div class="text-sm text-gray-400">National Honor Society</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed max-w-md">Recognizing excellence in science education and fostering the next generation of scientific leaders through scholarship, service, and character.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#about" class="hover:text-teal-400 transition-colors">About Us</a></li>
+                        <li><a href="#requirements" class="hover:text-teal-400 transition-colors">Requirements</a></li>
+                        <li><a href="#service" class="hover:text-teal-400 transition-colors">Service</a></li>
+                        <li><a href="#apply" class="hover:text-teal-400 transition-colors">Apply Now</a></li>
+                        <li><a href="#contact" class="hover:text-teal-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
+                    <div class="text-gray-300 space-y-3">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                            <span>peter.nguyen@aliefisd.net</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Alief ISD</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Monthly Meetings</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Science National Honor Society. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1106,529 +917,281 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // FAQ toggle functionality
-        function toggleFAQ(num) {
-            const content = document.getElementById(`faq-content-${num}`);
-            const icon = document.getElementById(`faq-icon-${num}`);
-            
-            content.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
-        }
-
-        // Interactive requirement details
-        function showRequirementDetail(type) {
-            const details = {
-                gpa: {
-                    title: 'GPA Requirement Details',
-                    content: 'You must maintain an overall weighted GPA of 3.75 or higher. This is calculated across all your courses, with honors and AP classes receiving additional weight points.'
-                },
-                grade: {
-                    title: 'Grade Level Eligibility',
-                    content: 'SNHS membership is open to students in grades 10-12 who are in good academic and disciplinary standing. Freshmen are not eligible but are encouraged to prepare for future application.'
-                },
-                courses: {
-                    title: 'Science Course Requirements',
-                    content: 'You must have earned A\'s or B\'s in all science courses and be enrolled in at least one Dual Credit science class during your sophomore, junior, or senior year.'
-                },
-                approval: {
-                    title: 'Teacher Approval Process',
-                    content: 'Your application will be reviewed by the majority of science teachers on campus. They will evaluate your character, academic performance, and potential contribution to SNHS.'
-                }
-            };
-            
-            showModal(details[type].title, details[type].content);
-        }
-
-        // Interactive advisor details
-        function showAdvisorDetail(advisor) {
-            const advisors = {
-                chen: {
-                    name: 'Dr. Chen',
-                    title: 'Faculty Advisor',
-                    department: 'Science Department',
-                    specialization: 'Biology and Chemistry',
-                    experience: '15+ years teaching experience',
-                    education: 'Ph.D. in Biochemistry from Rice University',
-                    bio: 'Dr. Chen has been leading the SNHS chapter for 8 years and is passionate about inspiring students to pursue careers in the life sciences. She has published numerous research papers and brings real-world laboratory experience to the classroom.',
-                    achievements: ['SNHS Advisor of the Year 2022', 'Published 25+ research papers', 'Mentored 100+ students into STEM careers', 'Coordinates blood drive programs'],
-                    courses: ['AP Biology', 'AP Chemistry', 'Dual Credit Biology', 'Honors Chemistry']
-                },
-                nguyen: {
-                    name: 'Mr. Nguyen',
-                    title: 'Faculty Advisor',
-                    department: 'Science Department',
-                    specialization: 'Physics and Engineering',
-                    experience: '12+ years teaching experience',
-                    education: 'M.S. in Physics from University of Houston',
-                    bio: 'Mr. Nguyen co-advises SNHS and specializes in physics and engineering education. He is known for his innovative teaching methods and his ability to make complex physics concepts accessible to all students.',
-                    achievements: ['Physics Teacher of the Year 2021', 'Robotics Team Mentor', 'Science Fair Judge Coordinator', 'STEM Outreach Program Leader'],
-                    courses: ['AP Physics C', 'AP Physics 1 & 2', 'Dual Credit Physics', 'Engineering Design']
-                }
-            };
-            
-            const advisorData = advisors[advisor];
-            const content = `
-                <div class="text-center mb-6">
-                    <div class="bg-gradient-to-br from-${advisor === 'chen' ? 'blue' : 'green'}-600 to-${advisor === 'chen' ? 'blue' : 'green'}-700 text-white rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4 text-3xl font-bold">
-                        ${advisorData.name.split(' ')[1][0]}${advisorData.name.split(' ')[1][1]}
-                    </div>
-                    <h3 class="text-xl font-bold text-black">${advisorData.name}</h3>
-                    <p class="text-${advisor === 'chen' ? 'blue' : 'green'}-600 font-semibold">${advisorData.title}</p>
-                    <p class="text-gray-600">${advisorData.department}</p>
-                </div>
-                <div class="text-left space-y-4">
-                    <div>
-                        <h4 class="font-bold text-black mb-1">Education:</h4>
-                        <p class="text-gray-700">${advisorData.education}</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-black mb-1">Specialization:</h4>
-                        <p class="text-gray-700">${advisorData.specialization} • ${advisorData.experience}</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-black mb-1">About:</h4>
-                        <p class="text-gray-700 mb-3">${advisorData.bio}</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-black mb-2">Key Achievements:</h4>
-                        <ul class="text-gray-700 space-y-1">
-                            ${advisorData.achievements.map(achievement => `<li>• ${achievement}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-black mb-2">Courses Taught:</h4>
-                        <div class="flex flex-wrap gap-2">
-                            ${advisorData.courses.map(course => `<span class="bg-${advisor === 'chen' ? 'blue' : 'green'}-100 text-${advisor === 'chen' ? 'blue' : 'green'}-800 px-2 py-1 rounded text-sm">${course}</span>`).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            showModal(`Meet ${advisorData.name}`, content);
-        }
-
-        // Interactive member details
-        function showMemberDetail(member) {
-            const members = {
-                alex: {
-                    name: 'Minh-Minh Nguyen',
-                    role: 'President',
-                    grade: 'Senior',
-                    focus: 'Biology',
-                    bio: 'Alex is passionate about marine biology and leads our environmental conservation projects. They have completed AP Biology, Chemistry, and Environmental Science with distinction.',
-                    achievements: ['Science Fair Winner 2023', 'Environmental Club President', '200+ Service Hours']
-                },
-                maria: {
-                    name: 'Maria Johnson',
-                    role: 'Vice President',
-                    grade: 'Junior',
-                    focus: 'Chemistry',
-                    bio: 'Maria excels in analytical chemistry and organizes our tutoring programs. She is currently taking AP Chemistry and Dual Credit Physics.',
-                    achievements: ['Chemistry Olympiad Qualifier', 'Peer Tutor of the Year', 'Research Internship at Local University']
-                },
-                david: {
-                    name: 'David Lee',
-                    role: 'Secretary',
-                    grade: 'Senior',
-                    focus: 'Physics',
-                    bio: 'David is fascinated by astrophysics and coordinates our science fair judging activities. He has completed AP Physics C and is taking Dual Credit Astronomy.',
-                    achievements: ['Physics Bowl Regional Champion', 'NASA USRP Participant', 'Robotics Team Captain']
-                },
-                sarah: {
-                    name: 'Sarah Wilson',
-                    role: 'Treasurer',
-                    grade: 'Junior',
-                    focus: 'Environmental Science',
-                    bio: 'Sarah is dedicated to environmental sustainability and manages our community outreach programs. She is taking AP Environmental Science and Dual Credit Earth Science.',
-                    achievements: ['Environmental Action Award', 'Community Garden Coordinator', 'Climate Change Research Project']
-                }
-            };
-            
-            const memberData = members[member];
-            const content = `
-                <div class="text-center mb-4">
-                    <div class="bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4 text-3xl font-bold">
-                        ${memberData.name.split(' ').map(n => n[0]).join('')}
-                    </div>
-                    <h3 class="text-xl font-bold text-black">${memberData.name}</h3>
-                    <p class="text-teal-600 font-semibold">${memberData.role}</p>
-                    <p class="text-gray-600">${memberData.grade} • ${memberData.focus} Focus</p>
-                </div>
-                <div class="text-left">
-                    <p class="text-gray-700 mb-4">${memberData.bio}</p>
-                    <h4 class="font-bold text-black mb-2">Key Achievements:</h4>
-                    <ul class="text-gray-700 space-y-1">
-                        ${memberData.achievements.map(achievement => `<li>• ${achievement}</li>`).join('')}
-                    </ul>
-                </div>
-            `;
-            
-            showModal(`Meet ${memberData.name}`, content);
-        }
-
-        // Generic modal function
-        function showModal(title, content) {
-            const modal = document.createElement('div');
-            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 animate-fadeInUp';
-            modal.innerHTML = `
-                <div class="bg-white rounded-lg p-6 max-w-lg w-full animate-slideInLeft">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-2xl font-bold text-black">${title}</h3>
-                        <button onclick="this.closest('.fixed').remove()" class="text-gray-500 hover:text-gray-700 transition-colors">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div>${content}</div>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-        }
-
-        // Initialize progress bars and animations on scroll
-        function initializeAnimations() {
-            const progressBars = document.querySelectorAll('.progress-bar');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        if (entry.target.classList.contains('progress-bar')) {
-                            const width = entry.target.getAttribute('data-width');
-                            entry.target.style.width = width + '%';
-                        }
-                    }
-                });
-            });
-            
-            progressBars.forEach(bar => observer.observe(bar));
-        }
-
-        // Animated counter function
-        function animateCounter(element, target, duration = 2000, isDecimal = false) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            
-            const timer = setInterval(() => {
-                start += increment;
-                if (start >= target) {
-                    start = target;
-                    clearInterval(timer);
-                }
+        // FAQ accordion
+        document.querySelectorAll('.faq-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const target = document.getElementById(this.dataset.target);
+                const icon = this.querySelector('.faq-icon');
                 
-                if (isDecimal) {
-                    element.textContent = start.toFixed(1);
-                } else {
-                    element.textContent = Math.floor(start);
-                }
-            }, 16);
-        }
-
-        // Initialize counters when they come into view
-        function initializeCounters() {
-            const counters = [
-                { id: 'member-count', target: 47, isDecimal: false },
-                { id: 'service-hours', target: 1250, isDecimal: false },
-                { id: 'gpa-average', target: 3.9, isDecimal: true }
-            ];
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const counter = counters.find(c => c.id === entry.target.id);
-                        if (counter && entry.target.textContent === '0' || entry.target.textContent === '0.0') {
-                            animateCounter(entry.target, counter.target, 2000, counter.isDecimal);
-                        }
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-content').forEach(content => {
+                    if (content !== target) {
+                        content.classList.add('hidden');
+                        content.parentElement.querySelector('.faq-icon').textContent = '+';
                     }
-                });
-            });
-            
-            counters.forEach(counter => {
-                const element = document.getElementById(counter.id);
-                if (element) observer.observe(element);
-            });
-        }
-
-        // Add interactive hover effects to navigation
-        function addNavEffects() {
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-2px)';
                 });
                 
-                link.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-        }
-
-        // Add scroll-triggered animations
-        function addScrollAnimations() {
-            const sections = document.querySelectorAll('section');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            sections.forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(section);
-            });
-        }
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeAnimations();
-            initializeCounters();
-            addNavEffects();
-            addScrollAnimations();
-            
-            // Add typing animation to hero text
-            setTimeout(() => {
-                const heroText = document.querySelector('header p');
-                if (heroText) {
-                    heroText.classList.add('typing-animation');
-                }
-            }, 1000);
-            
-            // Add interactive particles on mouse move
-            document.addEventListener('mousemove', function(e) {
-                if (Math.random() > 0.98) {
-                    createParticle(e.clientX, e.clientY);
-                }
+                // Toggle current FAQ item
+                target.classList.toggle('hidden');
+                icon.textContent = target.classList.contains('hidden') ? '+' : '−';
             });
         });
 
-        // Create interactive particles
-        function createParticle(x, y) {
-            const particle = document.createElement('div');
-            particle.className = 'fixed w-1 h-1 bg-teal-400 rounded-full pointer-events-none z-10';
-            particle.style.left = x + 'px';
-            particle.style.top = y + 'px';
-            particle.style.animation = 'float 2s ease-out forwards';
-            
-            document.body.appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 2000);
-        }
 
-        // Application form handler
-        function handleApplication(event) {
-            event.preventDefault();
-            
-            // Show success message
-            const form = event.target;
-            const formData = new FormData(form);
-            
-            // Create success message
-            const successDiv = document.createElement('div');
-            successDiv.className = 'bg-teal-50 border border-teal-200 text-teal-800 px-4 py-3 rounded-lg mt-4';
-            successDiv.innerHTML = `
-                <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                    </svg>
-                    <span>Thank you for your application! We'll review it and contact you within 2 weeks.</span>
-                </div>
-            `;
-            
-            form.appendChild(successDiv);
-            form.reset();
-            
-            // Remove success message after 5 seconds
-            setTimeout(() => {
-                successDiv.remove();
-            }, 5000);
-        }
 
-        // Contact form handler
-        function handleContact(event) {
-            event.preventDefault();
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            const form = event.target;
-            const formData = new FormData(form);
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
             
-            // Get form values
-            const name = formData.get('contactName');
-            const email = formData.get('contactEmail');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
+            // Create email content
+            const emailContent = `
+New Contact Form Message:
+
+From: ${data.contactName}
+Email: ${data.contactEmail}
+Subject: ${data.subject}
+
+Message:
+${data.message}
+            `.trim();
             
             // Create mailto link
-            const mailtoSubject = encodeURIComponent(`SNHS Contact: ${subject}`);
-            const mailtoBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-            const mailtoLink = `mailto:peter.nguyen@aliefisd.net?subject=${mailtoSubject}&body=${mailtoBody}`;
+            const subject = encodeURIComponent('Science NHS Contact: ' + data.subject);
+            const body = encodeURIComponent(emailContent);
+            const mailtoLink = `mailto:peter.nguyen@aliefisd.net?subject=${subject}&body=${body}`;
             
             // Open email client
             window.open(mailtoLink, '_blank');
             
-            // Create success message
-            const successDiv = document.createElement('div');
-            successDiv.className = 'bg-teal-50 border border-teal-200 text-teal-800 px-4 py-3 rounded-lg mt-4';
-            successDiv.innerHTML = `
-                <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                    </svg>
-                    <span>Opening your email client to send message to Mr. Nguyen...</span>
-                </div>
-            `;
-            
-            form.appendChild(successDiv);
-            form.reset();
-            
-            // Remove success message after 5 seconds
-            setTimeout(() => {
-                successDiv.remove();
-            }, 5000);
-        }
+            // Show success message
+            this.style.display = 'none';
+            document.getElementById('contact-success').classList.remove('hidden');
+        });
 
-        // Photo gallery functionality
-        function showPhotoCategory(category) {
-            // Hide all photo categories
-            const categories = document.querySelectorAll('.photo-category');
-            categories.forEach(cat => cat.classList.add('hidden'));
-            
-            // Show selected category
-            const selectedCategory = document.getElementById(`${category}-photos`);
-            if (selectedCategory) {
-                selectedCategory.classList.remove('hidden');
-            }
-            
-            // Update tab styles
-            const tabs = document.querySelectorAll('.photo-tab');
-            tabs.forEach(tab => {
-                tab.classList.remove('active', 'bg-teal-600', 'text-white');
-                tab.classList.add('bg-gray-200', 'text-gray-700');
+        // Gallery filtering functionality
+        document.querySelectorAll('.gallery-nav-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.dataset.category;
+                
+                // Update active button
+                document.querySelectorAll('.gallery-nav-btn').forEach(btn => {
+                    btn.classList.remove('active', 'bg-teal-600', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                this.classList.add('active', 'bg-teal-600', 'text-white');
+                this.classList.remove('bg-gray-200', 'text-gray-700');
+                
+                // Show/hide gallery categories
+                document.querySelectorAll('.gallery-category').forEach(categoryDiv => {
+                    if (categoryDiv.dataset.category === category) {
+                        categoryDiv.style.display = 'block';
+                        // Fade in animation
+                        categoryDiv.style.opacity = '0';
+                        setTimeout(() => {
+                            categoryDiv.style.opacity = '1';
+                            categoryDiv.style.transition = 'opacity 0.3s ease';
+                        }, 50);
+                    } else {
+                        categoryDiv.style.display = 'none';
+                    }
+                });
             });
+        });
+
+        // Photo modal functions
+        function openPhotoModal(imageSrc, caption) {
+            const modal = document.getElementById('photo-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalCaption = document.getElementById('modal-caption');
             
-            const activeTab = document.getElementById(`tab-${category}`);
-            if (activeTab) {
-                activeTab.classList.remove('bg-gray-200', 'text-gray-700');
-                activeTab.classList.add('active', 'bg-teal-600', 'text-white');
-            }
+            modalImage.src = imageSrc;
+            modalImage.alt = caption;
+            modalCaption.textContent = caption;
+            modal.classList.remove('hidden');
+            
+            // Prevent body scrolling when modal is open
+            document.body.style.overflow = 'hidden';
         }
 
-        // Open photo modal for individual members
-        function openPhotoModal(memberId) {
-            const memberData = {
-                member1: { name: 'Emma Brown', grade: 'Junior', focus: 'Biochemistry', bio: 'Emma is passionate about molecular biology and leads our tutoring program for underclassmen.' },
-                member2: { name: 'Michael Chen', grade: 'Senior', focus: 'Computer Science', bio: 'Michael combines his love for programming with scientific research, developing data analysis tools.' },
-                member3: { name: 'Jessica Davis', grade: 'Sophomore', focus: 'Environmental Science', bio: 'Jessica is our youngest member and already making waves with her climate research project.' },
-                member4: { name: 'Ryan Thompson', grade: 'Junior', focus: 'Physics', bio: 'Ryan is fascinated by quantum mechanics and participates in our advanced physics discussions.' },
-                member5: { name: 'Ashley Garcia', grade: 'Senior', focus: 'Pre-Med', bio: 'Ashley volunteers at the local hospital and plans to pursue medicine after graduation.' },
-                member6: { name: 'Tyler Martinez', grade: 'Junior', focus: 'Engineering', bio: 'Tyler builds robots in his spare time and leads our engineering outreach programs.' }
-            };
+        function closePhotoModal() {
+            const modal = document.getElementById('photo-modal');
+            modal.classList.add('hidden');
             
-            const member = memberData[memberId];
-            if (member) {
-                showModal(`${member.name} - ${member.grade}`, `
-                    <div class="text-center mb-4">
-                        <div class="bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                            ${member.name.split(' ').map(n => n[0]).join('')}
-                        </div>
-                        <p class="text-teal-600 font-semibold">${member.focus} Focus</p>
-                    </div>
-                    <p class="text-gray-700">${member.bio}</p>
-                `);
-            }
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
         }
 
-        // Open activity modal
-        function openActivityModal(activityId) {
-            const activities = {
-                'science-fair': {
-                    title: 'Annual Science Fair Judging',
-                    description: 'Our members serve as judges for the school and district science fairs, evaluating student projects and providing valuable feedback. This is one of our most important service activities, helping to inspire the next generation of scientists.',
-                    details: ['December: School Science Fair', 'January: District Science Fair', 'Judging criteria training provided', 'Interaction with 200+ student projects annually']
-                },
-                'blood-drive': {
-                    title: 'Blood Drive Organization',
-                    description: 'SNHS members coordinate three blood drives throughout the school year, helping to save lives in our community. Members handle scheduling, escort duties, and volunteer coordination.',
-                    details: ['3 drives per school year', 'Coordinate with Red Cross', 'Schedule 100+ donors per drive', 'Essential community service']
-                },
-                'lab-work': {
-                    title: 'Laboratory Research Sessions',
-                    description: 'Members participate in collaborative research projects, learning advanced laboratory techniques and contributing to ongoing scientific studies.',
-                    details: ['Weekly lab sessions', 'Advanced equipment training', 'Research project presentations', 'Mentorship opportunities']
-                },
-                'field-trip': {
-                    title: 'Educational Field Trips',
-                    description: 'We organize visits to research facilities, universities, and science museums to expand our understanding of scientific careers and current research.',
-                    details: ['University research labs', 'NASA Johnson Space Center', 'Medical facilities tours', 'Industry partnerships']
-                },
-                'meetings': {
-                    title: 'Weekly Chapter Meetings',
-                    description: 'Every Wednesday, members gather to plan activities, discuss scientific topics, and coordinate our service projects. These meetings are essential for maintaining our strong community.',
-                    details: ['Wednesdays at 3:30 PM', 'Activity planning', 'Guest speaker presentations', 'Member recognition ceremonies']
-                },
-                'community': {
-                    title: 'Community Science Outreach',
-                    description: 'Members volunteer at elementary schools, libraries, and community centers to promote science education and inspire young learners.',
-                    details: ['Elementary school visits', 'Science demonstration shows', 'Library science programs', 'Community STEM events']
+        // Close modal when clicking outside the image
+        document.getElementById('photo-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePhotoModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePhotoModal();
+                closeFacultyModal();
+            }
+        });
+
+        // Faculty modal functions
+        const facultyData = {
+            nguyen: {
+                name: "Mr. Peter Nguyen",
+                title: "Lead Advisor",
+                department: "Chemistry Department",
+                image: "https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg",
+                education: [
+                    "• M.S. Chemistry, University of Houston (2015)",
+                    "• B.S. Chemical Engineering, Rice University (2012)",
+                    "• Teaching Certification, University of Houston (2016)"
+                ],
+                specialization: [
+                    "• Organic Chemistry",
+                    "• Environmental Chemistry",
+                    "• Laboratory Safety & Management",
+                    "• STEM Education & Curriculum Development"
+                ],
+                courses: [
+                    "• AP Chemistry",
+                    "• Chemistry I & II",
+                    "• Environmental Science",
+                    "• Science Research Methods"
+                ]
+            },
+            martinez: {
+                name: "Dr. Lisa Martinez",
+                title: "Co-Advisor",
+                department: "Biology Department",
+                image: "https://snhsphotos.blob.core.windows.net/images/2023 2024 - 01.jpg",
+                education: [
+                    "• Ph.D. Molecular Biology, Baylor College of Medicine (2010)",
+                    "• M.S. Biotechnology, Texas A&M University (2006)",
+                    "• B.S. Biology, University of Texas at Austin (2004)"
+                ],
+                specialization: [
+                    "• Molecular Biology & Genetics",
+                    "• Microbiology",
+                    "• Biomedical Research",
+                    "• Science Fair Mentoring"
+                ],
+                courses: [
+                    "• AP Biology",
+                    "• Biology I & II",
+                    "• Anatomy & Physiology",
+                    "• Microbiology"
+                ]
+            }
+        };
+
+        function openFacultyModal(facultyId) {
+            const faculty = facultyData[facultyId];
+            if (!faculty) return;
+
+            const modal = document.getElementById('faculty-modal');
+            const modalContent = document.getElementById('faculty-modal-content');
+            
+            // Populate modal content
+            document.getElementById('faculty-modal-image').src = faculty.image;
+            document.getElementById('faculty-modal-name').textContent = faculty.name;
+            document.getElementById('faculty-modal-title').textContent = faculty.title;
+            document.getElementById('faculty-modal-department').textContent = faculty.department;
+            
+            // Populate education
+            const educationDiv = document.getElementById('faculty-modal-education');
+            educationDiv.innerHTML = faculty.education.map(item => `<p>${item}</p>`).join('');
+            
+            // Populate specialization
+            const specializationDiv = document.getElementById('faculty-modal-specialization');
+            specializationDiv.innerHTML = faculty.specialization.map(item => `<p>${item}</p>`).join('');
+            
+            // Populate courses
+            const coursesDiv = document.getElementById('faculty-modal-courses');
+            coursesDiv.innerHTML = faculty.courses.map(item => `<p>${item}</p>`).join('');
+            
+            // Show modal with animation
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            // Trigger animation
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeFacultyModal() {
+            const modal = document.getElementById('faculty-modal');
+            const modalContent = document.getElementById('faculty-modal-content');
+            
+            // Animate out
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            
+            // Hide modal after animation
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Close faculty modal when clicking outside
+        document.getElementById('faculty-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeFacultyModal();
+            }
+        });
+
+        // Counter animation functions
+        function animateCounter(counterId, target, duration = 2000) {
+            const counter = document.getElementById(counterId);
+            let current = 0;
+            const increment = target / (duration / 16); // 60fps animation
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
                 }
-            };
-            
-            const activity = activities[activityId];
-            if (activity) {
-                const content = `
-                    <p class="text-gray-700 mb-4">${activity.description}</p>
-                    <h4 class="font-bold text-black mb-2">Key Activities:</h4>
-                    <ul class="text-gray-700 space-y-1">
-                        ${activity.details.map(detail => `<li>• ${detail}</li>`).join('')}
-                    </ul>
-                `;
-                showModal(activity.title, content);
-            }
+                counter.textContent = Math.floor(current);
+            }, 16);
         }
 
-        // Show all members functionality
-        function showAllMembers() {
-            const membersList = [
-                'Alex Smith - President (Senior)',
-                'Maria Johnson - Vice President (Junior)', 
-                'David Lee - Secretary (Senior)',
-                'Sarah Wilson - Treasurer (Junior)',
-                'Emma Brown - Junior',
-                'Michael Chen - Senior',
-                'Jessica Davis - Sophomore',
-                'Ryan Thompson - Junior',
-                'Ashley Garcia - Senior',
-                'Tyler Martinez - Junior'
-            ];
-            
-            // Create modal overlay
-            const modal = document.createElement('div');
-            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
-            modal.innerHTML = `
-                <div class="bg-white rounded-lg p-6 max-w-2xl w-full max-h-96 overflow-y-auto">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-2xl font-bold text-black">All SNHS Members</h3>
-                        <button onclick="this.closest('.fixed').remove()" class="text-gray-500 hover:text-gray-700">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-2">
-                        ${membersList.map(member => `<div class="p-2 bg-gray-50 rounded">${member}</div>`).join('')}
-                    </div>
-                    <p class="text-center text-gray-600 mt-4">And 37 more active members...</p>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
+        function animateMemberCounter() {
+            animateCounter('member-counter', 23, 1500);
+        }
+
+        function animateLivesCounter() {
+            animateCounter('lives-counter', 129, 2500);
+        }
+
+        // Intersection Observer for counter animations
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Start both animations with slight delay between them
+                    animateMemberCounter();
+                    setTimeout(() => {
+                        animateLivesCounter();
+                    }, 300);
+                    counterObserver.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, {
+            threshold: 0.3 // Trigger when 30% of the element is visible
+        });
+
+        // Observe the counter section
+        const counterSection = document.querySelector('.grid.md\\:grid-cols-2');
+        if (counterSection) {
+            counterObserver.observe(counterSection);
         }
 
         // Smooth scrolling for navigation links
@@ -1641,13 +1204,11 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    
                     // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    mobileMenu.classList.add('hidden');
+                    document.getElementById('mobile-menu').classList.add('hidden');
                 }
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'991adb43e311f0a4',t:'MTc2MDk4Nzg1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9921b3f7e405f0a4',t:'MTc2MTA1OTY0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
