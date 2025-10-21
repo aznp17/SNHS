@@ -59,6 +59,58 @@
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
+        
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-animate.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-animate-left.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-animate-right.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-animate-scale.animate-in {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
@@ -136,11 +188,11 @@
         <section id="about" class="section-padding bg-white">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="grid lg:grid-cols-2 gap-16 items-center">
-                    <div>
+                    <div class="scroll-animate-left">
                         <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">About Science NHS</h2>
                         <p class="text-lg text-gray-600 mb-8 leading-relaxed">The Science National Honor Society recognizes outstanding achievement in science and promotes interest in science among high school students. We foster scientific literacy and encourage careers in STEM fields.</p>
                         <div class="space-y-6">
-                            <div class="flex items-start">
+                            <div class="flex items-start scroll-animate stagger-1">
                                 <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                                     <div class="text-2xl">🏆</div>
                                 </div>
@@ -149,7 +201,7 @@
                                     <p class="text-gray-600">Recognizing students who demonstrate outstanding performance in science coursework and maintain high academic standards.</p>
                                 </div>
                             </div>
-                            <div class="flex items-start">
+                            <div class="flex items-start scroll-animate stagger-2">
                                 <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                                     <div class="text-2xl">❤️</div>
                                 </div>
@@ -158,7 +210,7 @@
                                     <p class="text-gray-600">Engaging in meaningful service projects that benefit our community and promote scientific literacy.</p>
                                 </div>
                             </div>
-                            <div class="flex items-start">
+                            <div class="flex items-start scroll-animate stagger-3">
                                 <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                                     <div class="text-2xl">👥</div>
                                 </div>
@@ -169,7 +221,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-8">
+                    <div class="bg-gray-50 rounded-2xl p-8 scroll-animate-right">
                         <div class="text-center mb-8">
                             <div class="w-20 h-20 bg-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                                 <div class="text-4xl">🎯</div>
@@ -185,12 +237,12 @@
         <!-- Requirements Section -->
         <section id="requirements" class="section-padding bg-gray-50">
             <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16 scroll-animate">
                     <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Membership Requirements</h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto">To become a member of Science NHS, students must demonstrate excellence in four key areas</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-white rounded-2xl p-8 card-shadow text-center">
+                    <div class="bg-white rounded-2xl p-8 card-shadow text-center scroll-animate-scale stagger-1">
                         <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                             <div class="text-3xl">🎓</div>
                         </div>
@@ -202,7 +254,7 @@
                             <li>• Science teacher approval</li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 card-shadow text-center">
+                    <div class="bg-white rounded-2xl p-8 card-shadow text-center scroll-animate-scale stagger-2">
                         <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                             <div class="text-3xl">👑</div>
                         </div>
@@ -214,7 +266,7 @@
                             <li>• Initiative in projects</li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 card-shadow text-center">
+                    <div class="bg-white rounded-2xl p-8 card-shadow text-center scroll-animate-scale stagger-3">
                         <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                             <div class="text-3xl">🤝</div>
                         </div>
@@ -226,7 +278,7 @@
                             <li>• Service-oriented mindset</li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 card-shadow text-center">
+                    <div class="bg-white rounded-2xl p-8 card-shadow text-center scroll-animate-scale stagger-4">
                         <div class="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                             <div class="text-3xl">⭐</div>
                         </div>
@@ -245,12 +297,12 @@
         <!-- Service Opportunities -->
         <section id="service" class="section-padding bg-white">
             <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16 scroll-animate">
                     <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Service Opportunities</h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto">Make a difference in your community through meaningful science-focused service projects</p>
                 </div>
                 <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div class="group">
+                    <div class="group scroll-animate stagger-1">
                         <div class="bg-teal-50 rounded-2xl p-8 mb-6 group-hover:bg-teal-100 transition-colors">
                             <div class="text-5xl mb-4">🩸</div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3">Blood Drive Volunteer</h3>
@@ -263,7 +315,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="group">
+                    <div class="group scroll-animate stagger-2">
                         <div class="bg-teal-50 rounded-2xl p-8 mb-6 group-hover:bg-teal-100 transition-colors">
                             <div class="text-5xl mb-4">🔬</div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3">School Science Fair Judge</h3>
@@ -276,7 +328,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="group">
+                    <div class="group scroll-animate stagger-3">
                         <div class="bg-teal-50 rounded-2xl p-8 mb-6 group-hover:bg-teal-100 transition-colors">
                             <div class="text-5xl mb-4">🏆</div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3">District Science Fair Judge</h3>
@@ -1199,6 +1251,28 @@ ${data.message}
             counterObserver.observe(counterSection);
         }
 
+        // Scroll animation system
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll animation classes
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale');
+            animatedElements.forEach(el => {
+                scrollObserver.observe(el);
+            });
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1215,5 +1289,5 @@ ${data.message}
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9921c667446c359a',t:'MTc2MTA2MDQwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99229edbc7be978c',t:'MTc2MTA2OTI3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
