@@ -1,7 +1,7 @@
 # 🌐 Science National Honor Society Website
 
 ## **📘 Overview**
-The **Science National Honor Society (SNHS)** website serves as an informative hub for students, members, and community visitors. It presents the organization’s mission to **promote scientific excellence** and **encourage community engagement** through educational events and service opportunities.
+The **Science National Honor Society (SNHS)** website serves as an informative hub for students, members, and visitors. It presents the organization’s mission to **promote scientific excellence** and **encourage community engagement** through educational events and service opportunities.
 
 ## **📑 Summary**
 This site provides:
@@ -11,7 +11,7 @@ This site provides:
 - **Photo galleries** showcasing participation and outreach  
 - **Contact information** for seamless communication  
 
-Overall, the website functions as a centralized resource that reflects the purpose of SNHS and supports a growing interest in scientific learning and involvement.
+Overall, the website functions as a resource that reflects the purpose of SNHS and supports a growing interest in scientific learning and involvement.
 
 ---
 
