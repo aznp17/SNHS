@@ -1,4 +1,6 @@
-# 🌐 Science National Honor Society Website
+# 🌐 AECHS Science National Honor Society Website
+
+🔗 **Visit the Website:** [http://bit.ly/AECHS-SNHS-Website](http://bit.ly/AECHS-SNHS-Website)
 
 ## **📘 Overview**
 The **Science National Honor Society (SNHS)** website serves as an informative hub for students, members, and visitors. It presents the organization’s mission to **promote scientific excellence** and **encourage community engagement** through educational events and service opportunities.
