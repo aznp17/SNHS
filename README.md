@@ -1,1 +1,18 @@
-This website was created to advertise and inform people about Science National Honor Society at my campus. It highlights our mission to promote scientific excellence and community involvment. On this site, visitors can learn about our events, service projects, and member accomplishments, as well as find ways to get involved. It also includes photos, updates and ocntact information so everyone can stay connected. Overall, the website helps share what SNHS is all about and inspires other to appreciate and participate in science.
+# 🌐 Science National Honor Society Website
+
+## **📘 Overview**
+The **Science National Honor Society (SNHS)** website serves as an informative hub for students, members, and community visitors. It presents the organization’s mission to **promote scientific excellence** and **encourage community engagement** through educational events and service opportunities.
+
+## **📑 Summary**
+This site provides:
+- **Event information** highlighting upcoming activities and initiatives  
+- **Service project details** and ways to get involved  
+- **Member achievements** and recognition updates  
+- **Photo galleries** showcasing participation and outreach  
+- **Contact information** for seamless communication  
+
+Overall, the website functions as a centralized resource that reflects the purpose of SNHS and supports a growing interest in scientific learning and involvement.
+
+---
+
+✨ *Designed to engage, inform, and inspire a passion for science within our community.*
