@@ -7,11 +7,11 @@ The **Science National Honor Society (SNHS)** website serves as an informative h
 
 ## **📑 Summary**
 This site provides:
-- **Event information** highlighting upcoming activities and initiatives  
-- **Service project details** and ways to get involved  
-- **Member achievements** and recognition updates  
+- **Event information** highlighting activities and initiatives
+- **Club information** provide SNHS' details
+- **Member achievements** recognition updates  
 - **Photo galleries** showcasing participation and outreach  
-- **Contact information** for seamless communication  
+- **Contact information** for questions about SNHS  
 
 Overall, the website functions as a resource that reflects the purpose of SNHS and supports a growing interest in scientific learning and involvement.
 
