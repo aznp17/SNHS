@@ -46,3 +46,29 @@ To ensure data confidentiality in transit without introducing "Secret Zero" vuln
 * **Azure Key Vault:** Provisioned a hardware-backed Azure Key Vault to securely store the domain's SSL/TLS certificates.
 * **System-Assigned Managed Identity:** Assigned a native Entra ID identity directly to the Ubuntu Virtual Machine.
 * **Secretless Handshake:** Granted the VM's Managed Identity RBAC permissions to read the Key Vault. The server retrieves its cryptographic certificates dynamically, completely eliminating the need to store passwords or private keys on the local compute drive, forcing all web traffic over encrypted HTTPS.
+
+---
+
+## 🗝️ Architectural Deep Dive: Resolving the "Secret Zero" Vulnerability
+
+### The Dilemma: What is "Secret Zero"?
+To comply with **ISO 27001 Control 8.24 (Use of Cryptography)**, the SNHS web server must encrypt all web traffic using an SSL/TLS certificate (forcing HTTPS). 
+
+However, this creates a paradox:
+1. We must store the cryptographic certificate securely (e.g., in an Azure Key Vault) so it isn't left in plain text on the server's hard drive.
+2. The web server needs a password/API key to open the Key Vault and retrieve the certificate.
+3. *Where do we safely store the password that opens the vault?* If we hardcode that initial password into the server's configuration files, we haven't solved the security problem; we just moved it. That initial, hardcoded password is known as **Secret Zero**.
+
+### The Solution: Azure Managed Identities
+To completely eliminate Secret Zero, this architecture leverages Microsoft Entra ID to authenticate the infrastructure natively, removing the need for passwords entirely.
+
+1. **System-Assigned Identity:** Instead of creating a service account with a password, a System-Assigned Managed Identity was enabled directly on the `SNHS-Web-01` Ubuntu Virtual Machine. Azure registers the physical VM as a trusted entity cryptographically tied to the lifecycle of the machine.
+2. **The Digital Safe:** The SSL/TLS certificate for `snhs.org` is generated and locked inside an Azure Key Vault (`snhs-vault-01`), which is configured to deny all access by default.
+3. **Secretless RBAC:** Using Azure RBAC, the Virtual Machine's Managed Identity is granted the *Key Vault Secrets User* role. 
+4. **The Password-less Handshake:** When the Nginx web server boots up and needs to encrypt traffic, it pings the Azure Instance Metadata Service (IMDS) at a non-routable, hidden IP address (`169.254.169.254`). The Azure hypervisor verifies the VM's identity, silently fetches a temporary JSON Web Token (JWT) from Entra ID, and presents it to the Key Vault. The Key Vault validates the token and securely hands the SSL certificate to the web server into memory.
+
+### Compliance & Security Impact
+By architecting the cryptography this way, the environment achieves the following:
+* **Zero Hardcoded Credentials:** There are no API keys, passwords, or certificates stored in the GitHub repository or the Linux file system.
+* **ISO 27001 Control 8.5 (Secure Authentication):** Reliance on static passwords is replaced by dynamic, platform-managed tokens.
+* **Automated Lifecycle Management:** If the web server is ever deleted, Azure automatically destroys its Managed Identity, ensuring no "ghost" credentials are left behind for attackers to exploit.
