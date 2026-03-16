@@ -13,6 +13,8 @@ This site provides:
 - **Photo galleries** showcasing participation and outreach  
 - **Contact information** for questions about SNHS  
 
+**[Read the full Cloud Security Architecture Documentation here](./SNHS-Secure-Web-Architecture.md)**
+
 Overall, the website functions as a resource that reflects the purpose of SNHS and supports a growing interest in scientific learning and involvement.
 
 ---
