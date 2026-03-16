@@ -16,6 +16,7 @@ To optimize for performance, cost, and security, the application stack was caref
 
 * **Operating System:** **Ubuntu 22.04 LTS (Headless)**
   * *Why:* By deploying a headless Linux distribution, we eliminate the compute overhead and proprietary licensing costs associated with Windows Server. More importantly, lacking a graphical user interface (GUI) drastically reduces the underlying attack surface.
+  * Other Operating System studied: Windows Server
 * **Web Server:** **Nginx**
   * *Why:* Chosen over Apache due to its asynchronous, event-driven architecture. Nginx efficiently handles high-concurrency traffic spikes with a fraction of the memory footprint and eliminates decentralized `.htaccess` directory scanning, further hardening the server.
 
